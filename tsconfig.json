@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
+    "types": ["@emotion/react/types/css-prop"],
+    "baseUrl": "src",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
