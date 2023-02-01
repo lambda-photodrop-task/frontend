@@ -1,3 +1,7 @@
+:root {
+  --main-text-color: #262626;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -9,5 +13,17 @@ html {
 }
 
 body {
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Termina';
+  color: var(--main-text-color);
+  margin: 0;
+}
+
+p {
+  font-family: 'Futura PT';
+  color: var(--main-text-color);
   margin: 0;
 }

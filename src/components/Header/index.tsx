@@ -1,6 +1,6 @@
 import React from 'react';
 import * as css from './css';
-import { ReactComponent as Logo } from '../../assets/photodrop-logo.svg';
+import { ReactComponent as Logo } from '../../assets/images/photodrop-logo.svg';
 
 const Header = () => (
   <div css={css.container}>
