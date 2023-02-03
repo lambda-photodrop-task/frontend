@@ -27,6 +27,16 @@ export const text: CSSWithTheme = () => ({
   marginTop: '15px',
   paddingBottom: '16px',
 
+  ol: {
+    margin: 0,
+    paddingLeft: '26px',
+  },
+
+  ul: {
+    margin: 0,
+    paddingLeft: '26px',
+  },
+
   '@media (max-width: 768px)': {
     fontSize: '16px',
     lineHeigt: '21px',
