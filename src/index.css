@@ -1,5 +1,9 @@
 :root {
   --main-text-color: #262626;
+  --secondary-text-color: #6d6d6d;
+
+  --cta-button-color: #3300cc;
+  --cta-button-disabled-color: #bcabee;
 }
 
 html {
@@ -14,6 +18,34 @@ html {
 
 body {
   margin: 0;
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/FuturaPT-Book.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 500;
+  src: url('assets/fonts/FuturaPT-Medium.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 600;
+  src: url('assets/fonts/FuturaPT-Bold.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Termina';
+  font-style: normal;
+  font-weight: 600;
+  src: url('assets/fonts/Termina-Bold.otf') format('opentype');
 }
 
 h1 {
