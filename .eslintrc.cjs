@@ -15,5 +15,9 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'off',
     'prettier/prettier': 'error',
     'jsx-a11y/label-has-associated-control': 'off',
+    'react/no-array-index-key': 'off',
+    'no-unreachable-loop': 'off',
+    'no-restricted-syntax': 'off',
+    'guard-for-in': 'off',
   },
 };

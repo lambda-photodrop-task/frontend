@@ -1,7 +1,7 @@
 export const container: CSSWithTheme = () => ({
-  height: 'calc(100vh - 60px - 178px)',
-  width: 'fit-content',
+  height: 'calc(100vh - 60px)',
   margin: '178px auto 0',
+  width: 'fit-content',
 
   '@media (max-width: 768px)': {},
 });
@@ -61,6 +61,7 @@ export const button: CSSWithTheme = () => ({
 
   ':disabled': {
     background: 'var(--cta-button-disabled-color)',
+    cursor: 'not-allowed',
   },
 });
 

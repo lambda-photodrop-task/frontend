@@ -1,10 +1,13 @@
 import React from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
+import { COUNTRIES, Country } from 'baseui/phone-input';
 import * as css from './css';
+import PhoneNumberInput from '../../components/PhoneInput';
 
 const OnboardingStepOne = () => {
   const initialValues = {
+    country: COUNTRIES.UA,
     phoneNumber: '',
   };
 
@@ -12,12 +15,17 @@ const OnboardingStepOne = () => {
     phoneNumber: yup.string().required("Field can't be empty"),
   });
 
-  const { values, errors, handleSubmit, handleChange, resetForm } = useFormik({
+  const { values, errors, handleSubmit, setFieldValue } = useFormik({
     initialValues,
     validationSchema,
     validateOnChange: true,
     onSubmit: (values) => {},
   });
+
+  const onCountryChange = (country: Country) => setFieldValue('country', country);
+  const onPhoneNumberChange = (phoneNumber: string) => setFieldValue('phoneNumber', phoneNumber);
+
+  console.log(values);
 
   return (
     <div css={css.container}>
@@ -27,7 +35,12 @@ const OnboardingStepOne = () => {
           <p css={css.inputLabel}>
             <b>Enter your phone number</b>
           </p>
-          <div style={{ marginTop: '18px' }} />
+          <PhoneNumberInput
+            country={values.country}
+            phoneNumber={values.phoneNumber}
+            onCountryChange={onCountryChange}
+            onPhoneNumberChange={onPhoneNumberChange}
+          />
         </div>
         <button type="button" css={css.button} style={{ marginTop: '20px' }}>
           Create account
