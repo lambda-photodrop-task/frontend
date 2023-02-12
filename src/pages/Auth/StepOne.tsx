@@ -2,34 +2,54 @@ import React from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { COUNTRIES, Country } from 'baseui/phone-input';
+import phone from 'phone';
+import { useNavigate } from 'react-router-dom';
 import * as css from './css';
 import PhoneNumberInput from '../../components/PhoneInput';
+import { isObjectEmpty } from '../../utilities/functions';
+import { useUserAuthStore } from '../../store/authStore';
 
-const OnboardingStepOne = () => {
-  const initialValues = {
+interface AuthStepOneValues {
+  country: Country;
+  phoneNumber: string;
+}
+
+const AuthStepOne = () => {
+  const { initiateAuth } = useUserAuthStore((state) => state);
+  const navigate = useNavigate();
+
+  const initialValues: AuthStepOneValues = {
     country: COUNTRIES.UA,
     phoneNumber: '',
   };
 
   const validationSchema = yup.object({
-    phoneNumber: yup.string().required("Field can't be empty"),
+    country: yup.object({}),
+    phoneNumber: yup
+      .string()
+      .trim()
+      .required("Field can't be empty")
+      .test('isPhoneValid', 'Invalid phone number', (value, ctx) => phone(ctx.parent.country.dialCode + value).isValid),
   });
 
-  const { values, errors, handleSubmit, setFieldValue } = useFormik({
+  const { values, errors, handleSubmit, setFieldValue, isSubmitting } = useFormik({
     initialValues,
     validationSchema,
+    validateOnMount: true,
     validateOnChange: true,
-    onSubmit: (values) => {},
+    onSubmit: async ({ country, phoneNumber }) => {
+      const phone = country.dialCode + phoneNumber;
+      await initiateAuth({ phone });
+      navigate('/auth/step-two');
+    },
   });
 
   const onCountryChange = (country: Country) => setFieldValue('country', country);
   const onPhoneNumberChange = (phoneNumber: string) => setFieldValue('phoneNumber', phoneNumber);
 
-  console.log(values);
-
   return (
     <div css={css.container}>
-      <div css={css.content}>
+      <form css={css.content} onSubmit={handleSubmit}>
         <h1 css={css.title}>Let&apos;s get started</h1>
         <div style={{ marginTop: '20px' }}>
           <p css={css.inputLabel}>
@@ -42,16 +62,16 @@ const OnboardingStepOne = () => {
             onPhoneNumberChange={onPhoneNumberChange}
           />
         </div>
-        <button type="button" css={css.button} style={{ marginTop: '20px' }}>
-          Create account
+        <button type="submit" css={css.button} disabled={!isObjectEmpty(errors) || isSubmitting}>
+          {isSubmitting ? 'Loading...' : 'Create account'}
         </button>
         <p css={css.secondaryText} style={{ marginTop: '20px' }}>
           By proceeding, you consent to get WhatsApp or SMS messages, from PhotoDrop and its affiliates to the number
           provided. Text “STOP” to 89203 to opt out.
         </p>
-      </div>
+      </form>
     </div>
   );
 };
 
-export default OnboardingStepOne;
+export default AuthStepOne;

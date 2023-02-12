@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import * as css from './css';
 import BlankAvatar from '../../assets/images/BlankAvatar.png';
 import { ReactComponent as PlusIcon } from '../../assets/images/plus-icon.svg';
+import { useUserAuthStore } from '../../store/authStore';
 
-const OnboardingStepThree = () => {
-  const initialValues = {
-    phoneNumber: '',
-  };
+const AuthStepThree = () => {
+  const { user } = useUserAuthStore((state) => state);
+  const navigate = useNavigate();
+
+  const initialValues = {};
 
   const validationSchema = yup.object({
     phoneNumber: yup.string().required("Field can't be empty"),
@@ -20,6 +23,10 @@ const OnboardingStepThree = () => {
     validateOnChange: true,
     onSubmit: (values) => {},
   });
+
+  useEffect(() => {
+    if (!user) navigate('/auth/step-one');
+  }, []);
 
   return (
     <div css={css.container}>
@@ -40,4 +47,4 @@ const OnboardingStepThree = () => {
   );
 };
 
-export default OnboardingStepThree;
+export default AuthStepThree;

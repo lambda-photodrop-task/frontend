@@ -15,10 +15,7 @@ const PhoneNumberInput: FC<PhoneInputProps> = ({ country, phoneNumber, onCountry
       country={country}
       onCountryChange={({ option }) => onCountryChange(option as Country)}
       text={phoneNumber}
-      onTextChange={(e) => {
-        const newValue = e.target.value;
-        if (newValue.length <= 10) onPhoneNumberChange(newValue.replace(/[^0-9]/gi, ''));
-      }}
+      onTextChange={(e) => onPhoneNumberChange(e.target.value.replace(/[^0-9]/gi, ''))}
       placeholder="(555) 555-5555"
       maxDropdownHeight="300px"
     />

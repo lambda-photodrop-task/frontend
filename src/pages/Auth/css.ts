@@ -25,11 +25,11 @@ export const input: CSSWithTheme = () => ({
   width: '100%',
   border: '1px solid #EEEEEE',
   borderRadius: '10px',
-  height: '40px',
+  height: '44px',
   background: '#F4F4F4',
   padding: '15px 17px',
   fontFamily: 'Futura PT',
-  fontSize: '18px',
+  fontSize: '16px',
   outline: 'none',
 });
 
@@ -46,6 +46,7 @@ export const button: CSSWithTheme = () => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  marginTop: '20px',
 
   color: '#FFFFFF',
   fontFamily: 'Futura PT',

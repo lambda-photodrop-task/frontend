@@ -19,5 +19,8 @@ module.exports = {
     'no-unreachable-loop': 'off',
     'no-restricted-syntax': 'off',
     'guard-for-in': 'off',
+    'react/no-this-in-sfc': 'off',
+    'no-unsafe-optional-chaining': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
   },
 };
