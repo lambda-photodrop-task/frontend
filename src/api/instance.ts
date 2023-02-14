@@ -1,4 +1,4 @@
-import axios, { InternalAxiosRequestConfig } from 'axios';
+import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { toast } from 'react-hot-toast';
 import { useAuthStore } from '../store/authStore';
 import { refresh } from './auth';
@@ -13,18 +13,21 @@ const handleAuthorization = (config: InternalAxiosRequestConfig) => {
   return config;
 };
 
-const handleErrors = async (err: any) => {
-  if (err.response.status === 401) {
-    const originalRequest = err.config;
+const handleResponse = (response: AxiosResponse) => response;
+
+const handleErrors = async (err: AxiosError<{ message: string }>) => {
+  if (err.response?.status === 401) {
+    const originalRequest = err.config!;
     const { refreshToken } = useAuthStore.getState().tokens;
 
-    const response = await refresh({ refreshToken });
+    const { data } = await refresh({ refreshToken });
 
-    originalRequest.headers.Authorization = `Bearer ${response.data.accessToken}`;
-    useAuthStore.setState({ tokens: { accessToken: response.data.accessToken, refreshToken } });
+    originalRequest.headers.Authorization = `Bearer ${data.accessToken}`;
+    useAuthStore.setState({ tokens: { accessToken: data.accessToken, refreshToken } });
+
     return axios(originalRequest);
   }
-  toast.error(err.response.data.message);
+  toast.error(err.response?.data?.message ?? 'Oops..! Something went wrong.');
   return Promise.reject(err);
 };
 
@@ -34,4 +37,4 @@ export const instance = axios.create({
 
 instance.interceptors.request.use(handleAuthorization);
 
-instance.interceptors.response.use((response) => response, handleErrors);
+instance.interceptors.response.use(handleResponse, handleErrors);

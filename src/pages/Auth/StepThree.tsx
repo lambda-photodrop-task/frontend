@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
@@ -8,10 +8,8 @@ import { ReactComponent as PlusIcon } from '../../assets/images/plus-icon.svg';
 import { useUserStore } from '../../store/userStore';
 
 const AuthStepThree = () => {
-  const { user } = useUserStore((state) => state);
+  const { user, getUser } = useUserStore((state) => state);
   const navigate = useNavigate();
-
-  console.log(user);
 
   const initialValues = {};
 
@@ -25,6 +23,12 @@ const AuthStepThree = () => {
     validateOnChange: true,
     onSubmit: (values) => {},
   });
+
+  useEffect(() => {
+    if (!user) {
+      getUser();
+    }
+  }, []);
 
   return (
     <div css={css.container(72)}>

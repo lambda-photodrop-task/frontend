@@ -25,8 +25,8 @@ export const useAuthStore = create<AuthStore>()(
         set({ authStatus: AuthStatus.StepTwo, phone });
       },
       finishUserAuth: async ({ phone, otp }: { phone: string; otp: string }) => {
-        const response = await finishUserAuth({ phone, otp });
-        const { accessToken, refreshToken, user } = response.data;
+        const { data } = await finishUserAuth({ phone, otp });
+        const { accessToken, refreshToken, user } = data;
 
         useUserStore.setState({ user });
         set({
