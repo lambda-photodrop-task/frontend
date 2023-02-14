@@ -1,5 +1,9 @@
 :root {
   --main-text-color: #262626;
+  --secondary-text-color: #6d6d6d;
+
+  --cta-button-color: #3300cc;
+  --cta-button-disabled-color: #bcabee;
 }
 
 html {
