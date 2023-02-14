@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as css from './css';
-import { useUserAuthStore } from '../../store/authStore';
+import { useAuthStore } from '../../store/authStore';
 import { isObjectEmpty } from '../../utilities/functions';
 
 interface AuthPhotographerValues {
@@ -12,7 +12,7 @@ interface AuthPhotographerValues {
 }
 
 const AuthPhotographer = () => {
-  const { initiateAuth } = useUserAuthStore((state) => state);
+  const { initiateAuth } = useAuthStore((state) => state);
   const navigate = useNavigate();
 
   const initialValues: AuthPhotographerValues = {

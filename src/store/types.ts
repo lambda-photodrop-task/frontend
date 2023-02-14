@@ -1,14 +1,15 @@
-export interface UserAuthStore {
-  authState: AuthState;
-  user: User | null;
-
-  initiateAuth: ({ phone }: { phone: string }) => Promise<void>;
-  finishAuth: ({ phone, otp }: { phone: string; otp: string }) => Promise<void>;
-}
-
-interface AuthState {
+export interface AuthStore {
   authStatus: AuthStatus;
   phone: string;
+  tokens: {
+    accessToken: string;
+    refreshToken: string;
+  };
+
+  init: () => Promise<void>;
+
+  startUserAuth: ({ phone }: { phone: string }) => Promise<void>;
+  finishUserAuth: ({ phone, otp }: { phone: string; otp: string }) => Promise<void>;
 }
 
 export interface User {

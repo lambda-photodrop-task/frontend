@@ -22,5 +22,6 @@ module.exports = {
     'react/no-this-in-sfc': 'off',
     'no-unsafe-optional-chaining': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
+    'import/no-cycle': 'off',
   },
 };

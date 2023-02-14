@@ -1,13 +1,7 @@
-export interface FinishAuthResponse {
+import { User } from '../store/types';
+
+export interface FinishUserAuthResponse {
   refreshToken: string;
   accessToken: string;
-  user: {
-    id: string;
-    phone: string;
-    name: string | null;
-    email: string | null;
-    selfie: string | null;
-    selfieThumb: string | null;
-    regDate: string;
-  };
+  user: User;
 }

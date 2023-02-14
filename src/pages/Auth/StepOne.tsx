@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import * as css from './css';
 import PhoneNumberInput from '../../components/PhoneInput';
 import { isObjectEmpty } from '../../utilities/functions';
-import { useUserAuthStore } from '../../store/authStore';
+import { useAuthStore } from '../../store/authStore';
 
 interface AuthStepOneValues {
   country: Country;
@@ -15,7 +15,7 @@ interface AuthStepOneValues {
 }
 
 const AuthStepOne = () => {
-  const { initiateAuth } = useUserAuthStore((state) => state);
+  const { startUserAuth } = useAuthStore((state) => state);
   const navigate = useNavigate();
 
   const initialValues: AuthStepOneValues = {
@@ -39,7 +39,7 @@ const AuthStepOne = () => {
     validateOnChange: true,
     onSubmit: async ({ country, phoneNumber }) => {
       const phone = country.dialCode + phoneNumber;
-      await initiateAuth({ phone });
+      await startUserAuth({ phone });
       navigate('/auth/step-two');
     },
   });

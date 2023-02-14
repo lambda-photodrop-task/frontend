@@ -11,11 +11,9 @@ import './index.css';
 const engine = new Styletron();
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <StyletronProvider value={engine}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </StyletronProvider>
-  </React.StrictMode>
+  <StyletronProvider value={engine}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StyletronProvider>
 );
