@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as css from './css';
 import CodeInput from '../../components/CodeInput';
-import { isObjectEmpty } from '../../utilities/functions';
+import { isObjectEmpty } from '../../utilities/common';
 import { useAuthStore } from '../../store/authStore';
 
 interface AuthStepTwoValues {
@@ -36,17 +36,15 @@ const AuthStepTwo = () => {
   const handleChange = (value: string) => setFieldValue('otp', value);
 
   return (
-    <div css={css.container}>
+    <div css={css.container(106)}>
       <form css={css.content} onSubmit={handleSubmit}>
         <h1 css={css.title}>What&apos;s the code?</h1>
-        <div style={{ marginTop: '20px' }}>
+        <div>
           <p css={css.inputLabel}>
             Enter the code sent to <b>{phone}</b>
           </p>
           <CodeInput value={values.otp} handleChange={handleChange} />
-          <p css={css.inputResendCode} style={{ marginTop: '20px', width: 'fit-content' }}>
-            Resend code
-          </p>
+          <p css={css.inputResendCode}>Resend code</p>
         </div>
         <button type="submit" css={css.button} disabled={!isObjectEmpty(errors) || isSubmitting}>
           Next

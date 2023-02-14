@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as css from './css';
 import { useAuthStore } from '../../store/authStore';
-import { isObjectEmpty } from '../../utilities/functions';
+import { isObjectEmpty } from '../../utilities/common';
 
 interface AuthPhotographerValues {
   login: string;

@@ -7,9 +7,22 @@ export interface AuthStore {
   };
 
   init: () => Promise<void>;
-
   startUserAuth: ({ phone }: { phone: string }) => Promise<void>;
   finishUserAuth: ({ phone, otp }: { phone: string; otp: string }) => Promise<void>;
+}
+
+export interface UserStore {
+  user: User | null;
+
+  getUser: () => Promise<void>;
+}
+
+export enum AuthStatus {
+  Loading = '',
+  StepOne = 'step-one',
+  StepTwo = 'step-two',
+  StepThree = 'step-three',
+  LoggedIn = 'logged-in',
 }
 
 export interface User {
@@ -20,12 +33,4 @@ export interface User {
   selfie: string | null;
   selfieThumb: string | null;
   regDate: string;
-}
-
-export enum AuthStatus {
-  Loading = '',
-  StepOne = 'step-one',
-  StepTwo = 'step-two',
-  StepThree = 'step-three',
-  LoggedIn = 'logged-in',
 }

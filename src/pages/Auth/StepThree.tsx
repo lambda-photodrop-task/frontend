@@ -5,11 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import * as css from './css';
 import BlankAvatar from '../../assets/images/BlankAvatar.png';
 import { ReactComponent as PlusIcon } from '../../assets/images/plus-icon.svg';
-import { useAuthStore } from '../../store/authStore';
+import { useUserStore } from '../../store/userStore';
 
 const AuthStepThree = () => {
-  const { user } = useAuthStore((state) => state);
+  const { user } = useUserStore((state) => state);
   const navigate = useNavigate();
+
+  console.log(user);
 
   const initialValues = {};
 
@@ -25,11 +27,13 @@ const AuthStepThree = () => {
   });
 
   return (
-    <div css={css.container}>
+    <div css={css.container(72)}>
       <div css={css.content}>
         <h1 css={css.title}>Add a selfie</h1>
-        <div style={{ marginTop: '20px' }}>
-          <p css={css.inputLabel}>A selfie allows your photos to be synced with your account.</p>
+        <div>
+          <p css={css.inputLabel} style={{ textAlign: 'center' }}>
+            A selfie allows your photos to be synced with your account.
+          </p>
         </div>
         <div css={css.avatarContainer}>
           <img src={BlankAvatar} alt="Blank avatar" />
