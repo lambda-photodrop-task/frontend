@@ -1,11 +1,30 @@
-@import url('https://use.typekit.net/zto6joo.css');
-
 :root {
   --main-text-color: #262626;
   --secondary-text-color: #6d6d6d;
 
   --cta-button-color: #3300cc;
   --cta-button-disabled-color: #bcabee;
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/FuturaPTBook.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 500;
+  src: url('assets/fonts/FuturaPTMedium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/FuturaPTBold.otf') format('opentype');
 }
 
 html {
