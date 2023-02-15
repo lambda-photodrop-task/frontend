@@ -27,6 +27,13 @@
   src: url('assets/fonts/FuturaPTBold.otf') format('opentype');
 }
 
+@font-face {
+  font-family: 'Termina';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/TerminaBold.otf') format('opentype');
+}
+
 html {
   box-sizing: border-box;
 }
