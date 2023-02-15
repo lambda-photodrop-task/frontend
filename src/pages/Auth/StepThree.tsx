@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as css from './css';
 import BlankAvatar from '../../assets/images/BlankAvatar.png';
-import { ReactComponent as PlusIcon } from '../../assets/images/plus-icon.svg';
+import { ReactComponent as PlusIcon } from '../../assets/images/icons/plus-icon.svg';
 import { useUserStore } from '../../store/userStore';
 
 const AuthStepThree = () => {

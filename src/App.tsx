@@ -1,7 +1,6 @@
 import React, { ReactNode, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import PrivacyPolicy from './pages/PrivacyPolicy';
-import Header from './components/Header';
 import TermsOfUse from './pages/TermsOfUse';
 import { Notification } from './components/Toaster';
 import AuthPhotographer from './pages/Auth/Photographer';
@@ -10,6 +9,7 @@ import AuthStepTwo from './pages/Auth/StepTwo';
 import AuthStepThree from './pages/Auth/StepThree';
 import { useAuthStore } from './store/authStore';
 import { AuthStatus } from './store/types';
+import Loader from './components/Loader';
 
 const App = () => {
   const { authStatus, init } = useAuthStore((state) => state);
@@ -21,7 +21,7 @@ const App = () => {
   if (authStatus === AuthStatus.Loading) {
     return (
       <Routes>
-        <Route path="/" element={<div>Loading...</div>} />
+        <Route path="/" element={<Loader />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
@@ -73,7 +73,6 @@ const App = () => {
 
   return (
     <>
-      <Header />
       {routes}
       <Notification />
     </>
