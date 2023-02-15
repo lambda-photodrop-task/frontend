@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { toast } from 'react-hot-toast';
 import { useAuthStore } from '../store/authStore';
+import { AuthStatus } from '../store/types';
 import { refresh } from './auth';
 
 const handleAuthorization = (config: InternalAxiosRequestConfig) => {
@@ -17,6 +18,11 @@ const handleResponse = (response: AxiosResponse) => response;
 
 const handleErrors = async (err: AxiosError<{ message: string }>) => {
   if (err.response?.status === 401) {
+    if (err.response.data.message === 'Invalid refresh token') {
+      useAuthStore.setState({ tokens: { accessToken: '', refreshToken: '' }, authStatus: AuthStatus.StepOne });
+      return Promise.reject(err);
+    }
+
     const originalRequest = err.config!;
     const { refreshToken } = useAuthStore.getState().tokens;
 
@@ -27,6 +33,7 @@ const handleErrors = async (err: AxiosError<{ message: string }>) => {
 
     return axios(originalRequest);
   }
+
   toast.error(err.response?.data?.message ?? 'Oops..! Something went wrong.');
   return Promise.reject(err);
 };

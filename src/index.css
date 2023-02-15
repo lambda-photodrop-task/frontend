@@ -6,6 +6,34 @@
   --cta-button-disabled-color: #bcabee;
 }
 
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/FuturaPTBook.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 500;
+  src: url('assets/fonts/FuturaPTMedium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/FuturaPTBold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Termina';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/TerminaBold.otf') format('opentype');
+}
+
 html {
   box-sizing: border-box;
 }
