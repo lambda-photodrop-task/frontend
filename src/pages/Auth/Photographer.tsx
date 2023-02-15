@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as css from './css';
 import { useAuthStore } from '../../store/authStore';
-import { isObjectEmpty } from '../../utilities/functions';
+import { isObjectEmpty } from '../../utilities/common';
 
 interface AuthPhotographerValues {
   login: string;
@@ -12,7 +12,7 @@ interface AuthPhotographerValues {
 }
 
 const AuthPhotographer = () => {
-  const { initiateAuth } = useAuthStore((state) => state);
+  const { init } = useAuthStore((state) => state);
   const navigate = useNavigate();
 
   const initialValues: AuthPhotographerValues = {
@@ -34,7 +34,7 @@ const AuthPhotographer = () => {
   });
 
   return (
-    <div css={css.container}>
+    <div css={css.container(136)}>
       <h1 css={css.title}>Photographer&apos;s login</h1>
       <form css={css.content} onSubmit={handleSubmit}>
         <div style={{ marginTop: '20px' }}>

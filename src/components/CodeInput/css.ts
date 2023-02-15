@@ -18,4 +18,10 @@ export const input = () => ({
     fontSize: '18px',
     color: 'var(--main-text-color)',
   },
+
+  '@media (max-width: 425px)': {
+    '.code-input-container': {
+      width: '100%',
+    },
+  },
 });

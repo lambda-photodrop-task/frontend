@@ -1,24 +1,46 @@
-export const container: CSSWithTheme = () => ({
-  height: 'calc(100vh - 60px)',
-  margin: '178px auto 0',
-  width: 'fit-content',
+export const container =
+  (mobileMargin: number): CSSWithTheme =>
+  () => ({
+    margin: '178px auto 0',
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
 
-  '@media (max-width: 768px)': {},
-});
+    '@media (max-width: 425px)': {
+      margin: `${mobileMargin}px 0 0`,
+    },
+  });
 
 export const content: CSSWithTheme = () => ({
-  maxWidth: '420px',
+  width: '420px',
+
+  '@media (max-width: 425px)': {
+    width: '100%',
+    padding: '0 15px',
+  },
 });
 
 export const title: CSSWithTheme = () => ({
   fontSize: '30px',
-  lineHeight: '36px',
+  lineHeight: '22px',
   textAlign: 'center',
+
+  '@media (max-width: 425px)': {
+    fontSize: '22px',
+    lineHeight: '17px',
+  },
 });
 
 export const inputLabel: CSSWithTheme = () => ({
   fontSize: '18px',
   lineHeight: '23px',
+  marginTop: `29px`,
+
+  '@media (max-width: 425px)': {
+    fontSize: '16px',
+    lineHeight: '21px',
+    marginTop: `14px`,
+  },
 });
 
 export const input: CSSWithTheme = () => ({
@@ -38,6 +60,13 @@ export const inputResendCode: CSSWithTheme = () => ({
   fontSize: '18px',
   lineHeight: '23px',
   color: 'var(--cta-button-color)',
+  marginTop: '20px',
+  width: 'fit-content',
+
+  '@media (max-width: 425px)': {
+    fontSize: '16px',
+    lineHeight: '21px',
+  },
 });
 
 export const button: CSSWithTheme = () => ({
@@ -64,11 +93,26 @@ export const button: CSSWithTheme = () => ({
     background: 'var(--cta-button-disabled-color)',
     cursor: 'not-allowed',
   },
+
+  '@media (max-width: 425px)': {
+    width: '100%',
+    fontSize: '18px',
+  },
 });
 
 export const secondaryText: CSSWithTheme = () => ({
   color: 'var(--secondary-text-color)',
   lineHeight: '21px',
+
+  a: {
+    color: 'var(--secondary-text-color)',
+    textDecorationColor: '#3300CC',
+  },
+
+  '@media (max-width: 425px)': {
+    fontSize: '14px',
+    lineHeight: '18px',
+  },
 });
 
 export const avatarContainer: CSSWithTheme = () => ({

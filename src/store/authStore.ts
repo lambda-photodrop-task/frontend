@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { finishUserAuth, init, initiateUserAuth } from '../api/auth';
 import { AuthStatus, AuthStore } from './types';
+import { useUserStore } from './userStore';
 
 export const useAuthStore = create<AuthStore>()(
   persist(
@@ -16,7 +17,7 @@ export const useAuthStore = create<AuthStore>()(
           return;
         }
 
-        await init({ accessToken: get().tokens.accessToken });
+        await init();
         set({ authStatus: AuthStatus.StepThree });
       },
       startUserAuth: async ({ phone }: { phone: string }) => {
@@ -24,8 +25,10 @@ export const useAuthStore = create<AuthStore>()(
         set({ authStatus: AuthStatus.StepTwo, phone });
       },
       finishUserAuth: async ({ phone, otp }: { phone: string; otp: string }) => {
-        const response = await finishUserAuth({ phone, otp });
-        const { accessToken, refreshToken, user } = response.data;
+        const { data } = await finishUserAuth({ phone, otp });
+        const { accessToken, refreshToken, user } = data;
+
+        useUserStore.setState({ user });
         set({
           authStatus: user.selfie ? AuthStatus.LoggedIn : AuthStatus.StepThree,
           tokens: { accessToken, refreshToken },

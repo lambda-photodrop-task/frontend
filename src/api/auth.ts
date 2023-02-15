@@ -1,12 +1,7 @@
 import { FinishUserAuthResponse } from '../types/auth';
 import { instance } from './instance';
 
-export const init = async ({ accessToken }: { accessToken: string }) =>
-  instance.get('/auth/user/status', {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
+export const init = async () => instance.get('/auth/user/status');
 
 export const refresh = async ({ refreshToken }: { refreshToken: string }) =>
   instance.get<{ accessToken: string }>('/auth/user/login', {
