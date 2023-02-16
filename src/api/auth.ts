@@ -1,4 +1,4 @@
-import { FinishUserAuthResponse } from '../types/auth';
+import { FinishUserAuthResponse, PhotographerAuthResponse } from '../types/auth';
 import { instance } from './instance';
 
 export const init = async () => instance.get('/auth/user/status');
@@ -19,4 +19,10 @@ export const finishUserAuth = async ({ phone, otp }: { phone: string; otp: strin
   instance.put<FinishUserAuthResponse>('/auth/user/login', {
     phone,
     otp,
+  });
+
+export const photographerAuth = async ({ login, password }: { login: string; password: string }) =>
+  instance.post<PhotographerAuthResponse>('/auth/photographer/login', {
+    login,
+    password,
   });

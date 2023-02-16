@@ -5,6 +5,8 @@ export const container =
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
 
     '@media (max-width: 425px)': {
       margin: `${mobileMargin}px 0 0`,
