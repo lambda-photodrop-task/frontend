@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
@@ -34,6 +34,10 @@ const AuthStepTwo = () => {
   });
 
   const handleChange = (value: string) => setFieldValue('otp', value);
+
+  useEffect(() => {
+    if (!phone) navigate('/auth/step-one');
+  }, []);
 
   return (
     <div css={css.container(106)}>
