@@ -10,6 +10,7 @@ import AuthStepThree from './pages/Auth/StepThree';
 import { useAuthStore } from './store/authStore';
 import Header from './components/Header';
 import Loader from './components/Loader';
+import PhotographerDashboard from './pages/Photographer/Dashboard';
 
 const App = () => {
   const { isLoggedIn, init } = useAuthStore((state) => state);
@@ -23,8 +24,10 @@ const App = () => {
     routes = (
       <Routes>
         <Route path="/auth/photographer" element={<AuthPhotographer />} />
+
         <Route path="/auth/step-one" element={<AuthStepOne />} />
         <Route path="/auth/step-two" element={<AuthStepTwo />} />
+
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
 
@@ -35,6 +38,9 @@ const App = () => {
     routes = (
       <Routes>
         <Route path="/auth/step-three" element={<AuthStepThree />} />
+
+        <Route path="/photographer/dashboard" element={<PhotographerDashboard />} />
+
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
 

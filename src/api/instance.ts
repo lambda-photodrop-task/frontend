@@ -17,13 +17,18 @@ const handleResponse = (response: AxiosResponse) => response;
 
 const handleErrors = async (err: AxiosError<{ message: string }>) => {
   if (err.response?.status === 401) {
+    const originalRequest = err.config!;
+    const { refreshToken } = useAuthStore.getState().tokens;
+
     if (err.response.data.message === 'Invalid refresh token') {
       useAuthStore.setState({ tokens: { accessToken: '', refreshToken: '' } });
       return Promise.reject(err);
     }
 
-    const originalRequest = err.config!;
-    const { refreshToken } = useAuthStore.getState().tokens;
+    if (!refreshToken) {
+      useAuthStore.setState({ tokens: { accessToken: '', refreshToken: '' }, isLoading: false });
+      return Promise.reject(err);
+    }
 
     const { data } = await refresh({ refreshToken });
 

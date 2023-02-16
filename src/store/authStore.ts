@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { finishUserAuth, init, initiateUserAuth } from '../api/auth';
+import { finishUserAuth, init, initiateUserAuth, photographerAuth } from '../api/auth';
 import { AuthStore } from './types';
 import { useUserStore } from './userStore';
 
@@ -33,6 +33,16 @@ export const useAuthStore = create<AuthStore>()(
         set({
           isLoggedIn: true,
           tokens: { accessToken, refreshToken },
+        });
+      },
+
+      photographerAuth: async ({ login, password }: { login: string; password: string }) => {
+        const { data } = await photographerAuth({ login, password });
+        const { accessToken, photographer } = data;
+
+        set({
+          isLoggedIn: true,
+          tokens: { accessToken, refreshToken: '' },
         });
       },
     }),

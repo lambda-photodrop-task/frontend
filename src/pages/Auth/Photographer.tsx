@@ -12,7 +12,7 @@ interface AuthPhotographerValues {
 }
 
 const AuthPhotographer = () => {
-  const { init } = useAuthStore((state) => state);
+  const { photographerAuth } = useAuthStore((state) => state);
   const navigate = useNavigate();
 
   const initialValues: AuthPhotographerValues = {
@@ -30,7 +30,10 @@ const AuthPhotographer = () => {
     validationSchema,
     validateOnMount: true,
     validateOnChange: true,
-    onSubmit: async ({ login, password }) => {},
+    onSubmit: async ({ login, password }) => {
+      await photographerAuth({ login, password });
+      navigate('/photographer/dashboard');
+    },
   });
 
   return (
