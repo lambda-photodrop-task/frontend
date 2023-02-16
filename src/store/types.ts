@@ -1,5 +1,6 @@
 export interface AuthStore {
-  authStatus: AuthStatus;
+  isLoggedIn: boolean;
+  isLoading: boolean;
   phone: string;
   tokens: {
     accessToken: string;
@@ -15,14 +16,6 @@ export interface UserStore {
   user: User | null;
 
   getUser: () => Promise<void>;
-}
-
-export enum AuthStatus {
-  Loading = '',
-  StepOne = 'step-one',
-  StepTwo = 'step-two',
-  StepThree = 'step-three',
-  LoggedIn = 'logged-in',
 }
 
 export interface User {

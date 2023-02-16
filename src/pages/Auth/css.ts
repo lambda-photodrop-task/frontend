@@ -1,9 +1,12 @@
 export const container =
   (mobileMargin: number): CSSWithTheme =>
   () => ({
+    margin: '178px auto 0',
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
 
     '@media (max-width: 425px)': {
       margin: `${mobileMargin}px 0 0`,

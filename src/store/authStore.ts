@@ -1,28 +1,29 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { finishUserAuth, init, initiateUserAuth } from '../api/auth';
-import { AuthStatus, AuthStore } from './types';
+import { AuthStore } from './types';
 import { useUserStore } from './userStore';
 
 export const useAuthStore = create<AuthStore>()(
   persist(
     (set, get) => ({
-      authStatus: AuthStatus.Loading,
+      isLoggedIn: false,
+      isLoading: true,
       tokens: { accessToken: '', refreshToken: '' },
       phone: '',
 
       init: async () => {
         if (!get().tokens.accessToken) {
-          set({ authStatus: AuthStatus.StepOne });
+          set({ isLoggedIn: false, isLoading: false });
           return;
         }
 
         await init();
-        set({ authStatus: AuthStatus.StepThree });
+        set({ isLoggedIn: true, isLoading: false });
       },
       startUserAuth: async ({ phone }: { phone: string }) => {
         await initiateUserAuth({ phone });
-        set({ authStatus: AuthStatus.StepTwo, phone });
+        set({ phone });
       },
       finishUserAuth: async ({ phone, otp }: { phone: string; otp: string }) => {
         const { data } = await finishUserAuth({ phone, otp });
@@ -30,7 +31,7 @@ export const useAuthStore = create<AuthStore>()(
 
         useUserStore.setState({ user });
         set({
-          authStatus: user.selfie ? AuthStatus.LoggedIn : AuthStatus.StepThree,
+          isLoggedIn: true,
           tokens: { accessToken, refreshToken },
         });
       },
