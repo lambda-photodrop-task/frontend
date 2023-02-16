@@ -10,6 +10,7 @@ import AuthStepThree from './pages/Auth/StepThree';
 import { useAuthStore } from './store/authStore';
 import { AuthStatus } from './store/types';
 import Loader from './components/Loader';
+import Header from './components/Header';
 
 const App = () => {
   const { authStatus, init } = useAuthStore((state) => state);
@@ -73,6 +74,7 @@ const App = () => {
 
   return (
     <>
+      <Header />
       {routes}
       <Notification />
     </>
