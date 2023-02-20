@@ -23,5 +23,6 @@ module.exports = {
     'no-unsafe-optional-chaining': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     'import/no-cycle': 'off',
+    'react/no-unstable-nested-components': 'off',
   },
 };

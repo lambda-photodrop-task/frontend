@@ -59,3 +59,7 @@ p {
   color: var(--main-text-color);
   margin: 0;
 }
+
+button {
+  font-family: 'Futura PT';
+}

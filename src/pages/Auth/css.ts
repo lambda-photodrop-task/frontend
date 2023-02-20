@@ -124,6 +124,7 @@ export const avatarContainer: CSSWithTheme = () => ({
 
   img: {
     height: '181px',
+    borderRadius: '50%',
   },
 });
 
