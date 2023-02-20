@@ -1,6 +1,13 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { finishUserAuth, init, initiateUserAuth, photographerAuth } from '../api/auth';
+import {
+  finishUserAuth,
+  getRole,
+  checkUserAuthorization,
+  initiateUserAuth,
+  photographerAuth,
+  checkPhotographerAuthorization,
+} from '../api/auth';
 import { AuthStore } from './types';
 import { useUserStore } from './userStore';
 
@@ -9,6 +16,7 @@ export const useAuthStore = create<AuthStore>()(
     (set, get) => ({
       isLoggedIn: false,
       isLoading: true,
+      role: 'Unknown',
       tokens: { accessToken: '', refreshToken: '' },
       phone: '',
 
@@ -18,8 +26,15 @@ export const useAuthStore = create<AuthStore>()(
           return;
         }
 
-        await init();
-        set({ isLoggedIn: true, isLoading: false });
+        const { data } = await getRole();
+
+        if (data.userType === 'User') {
+          await checkUserAuthorization();
+        } else if (data.userType === 'Photographer') {
+          await checkPhotographerAuthorization();
+        }
+
+        set({ isLoggedIn: true, isLoading: false, role: data.userType });
       },
       startUserAuth: async ({ phone }: { phone: string }) => {
         await initiateUserAuth({ phone });

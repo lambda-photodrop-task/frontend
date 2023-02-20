@@ -6,6 +6,8 @@ specifiers:
   '@emotion/react': ^11.10.5
   '@types/react': ^18.0.26
   '@types/react-dom': ^18.0.9
+  '@types/react-easy-crop': ^2.0.0
+  '@types/react-modal': ^3.13.1
   '@types/react-otp-input': ^2.0.1
   '@types/react-router-dom': ^5.3.3
   '@typescript-eslint/eslint-plugin': ^5.13.0
@@ -29,7 +31,10 @@ specifiers:
   prettier: ^2.8.3
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-easy-crop: ^4.7.1
   react-hot-toast: ^2.4.0
+  react-image-file-resizer: ^0.4.8
+  react-modal: ^3.16.1
   react-otp-input: ^2.4.0
   react-router-dom: ^6.8.0
   styletron-engine-atomic: ^1.5.0
@@ -48,7 +53,10 @@ dependencies:
   phone: 3.1.33
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-easy-crop: 4.7.1_biqbaboplfbrettd7655fr4n2y
   react-hot-toast: 2.4.0_biqbaboplfbrettd7655fr4n2y
+  react-image-file-resizer: 0.4.8
+  react-modal: 3.16.1_biqbaboplfbrettd7655fr4n2y
   react-otp-input: 2.4.0_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.8.0_biqbaboplfbrettd7655fr4n2y
   styletron-engine-atomic: 1.5.0
@@ -61,6 +69,8 @@ devDependencies:
   '@emotion/babel-preset-css-prop': 11.10.0
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
+  '@types/react-easy-crop': 2.0.0_biqbaboplfbrettd7655fr4n2y
+  '@types/react-modal': 3.13.1
   '@types/react-otp-input': 2.0.1
   '@types/react-router-dom': 5.3.3
   '@typescript-eslint/eslint-plugin': 5.50.0_l3z5laih5skfbgx6thjqzht4z4
@@ -927,6 +937,22 @@ packages:
 
   /@types/react-dom/18.0.10:
     resolution: {integrity: sha512-E42GW/JA4Qv15wQdqJq8DL4JhNpB3prJgjgapN3qJT9K2zO5IIAQh4VXvCEDupoqAwnz0cY4RlXeC/ajX5SFHg==}
+    dependencies:
+      '@types/react': 18.0.27
+    dev: true
+
+  /@types/react-easy-crop/2.0.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-dUkoNMW3OrXQBYgozC43d3vYPQD23uJFt3ZmM4vcVrj7UjmIc2WxCnO9Zl5fs6bp7StnCtYb3Kp7h7s5T2Xu4w==}
+    deprecated: This is a stub types definition. react-easy-crop provides its own type definitions, so you do not need this installed.
+    dependencies:
+      react-easy-crop: 4.7.1_biqbaboplfbrettd7655fr4n2y
+    transitivePeerDependencies:
+      - react
+      - react-dom
+    dev: true
+
+  /@types/react-modal/3.13.1:
+    resolution: {integrity: sha512-iY/gPvTDIy6Z+37l+ibmrY+GTV4KQTHcCyR5FIytm182RQS69G5ps4PH2FxtC7bAQ2QRHXMevsBgck7IQruHNg==}
     dependencies:
       '@types/react': 18.0.27
     dev: true
@@ -2310,6 +2336,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /exenv/1.2.2:
+    resolution: {integrity: sha512-Z+ktTxTwv9ILfgKCk32OX3n/doe+OcLTRtqK9pcL+JsP3J1/VW8Uvl4ZjLlKqeW4rzK4oesDOGMEMRIZqtP4Iw==}
+    dev: false
+
   /fast-deep-equal/3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
     dev: true
@@ -3000,6 +3030,9 @@ packages:
     resolution: {integrity: sha512-2xfmOrRkGogbTK9R6Leda0DGiXeY3p2NJpy4+gNCffdUvV6mdEJnaDEic1i3Ec2djAo8jWYoJMR5PB0MSMpxUA==}
     dev: true
 
+  /normalize-wheel/1.0.1:
+    resolution: {integrity: sha512-1OnlAPZ3zgrk8B91HyRj+eVv+kS5u+Z0SCsak6Xil/kmgEia50ga7zfkumayonZrImffAxPU/5WcyGhzetHNPA==}
+
   /object-assign/4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
@@ -3222,7 +3255,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-    dev: false
 
   /react-dropzone/9.0.0_react@18.2.0:
     resolution: {integrity: sha512-wZ2o9B2qkdE3RumWhfyZT9swgJYJPeU5qHEcMU8weYpmLex1eeWX0CC32/Y0VutB+BBi2D+iePV/YZIiB4kZGw==}
@@ -3236,6 +3268,17 @@ packages:
       prop-types-extra: 1.1.1_react@18.2.0
       react: 18.2.0
     dev: false
+
+  /react-easy-crop/4.7.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-F9EmLo90yWCR18voJki9upZF2GVsmPKQmu8vtTnUDFwb/PHblvMCKy/KUbu6/cniRmvPS2kiDjCUmMpAoDeJcw==}
+    peerDependencies:
+      react: '>=16.4.0'
+      react-dom: '>=16.4.0'
+    dependencies:
+      normalize-wheel: 1.0.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      tslib: 2.0.1
 
   /react-fast-compare/2.0.4:
     resolution: {integrity: sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==}
@@ -3274,6 +3317,10 @@ packages:
       - csstype
     dev: false
 
+  /react-image-file-resizer/0.4.8:
+    resolution: {integrity: sha512-Ue7CfKnSlsfJ//SKzxNMz8avDgDSpWQDOnTKOp/GNRFJv4dO9L5YGHNEnj40peWkXXAK2OK0eRIoXhOYpUzUTQ==}
+    dev: false
+
   /react-input-mask/2.0.4_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-1hwzMr/aO9tXfiroiVCx5EtKohKwLk/NT8QlJXHQ4N+yJJFyUuMT+zfTpLBwX/lK3PkuMlievIffncpMZ3HGRQ==}
     peerDependencies:
@@ -3291,6 +3338,21 @@ packages:
 
   /react-lifecycles-compat/3.0.4:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
+    dev: false
+
+  /react-modal/3.16.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-VStHgI3BVcGo7OXczvnJN7yT2TWHJPDXZWyI/a0ssFNhGZWsPmB8cF0z33ewDXq4VfYMO1vXgiv/g8Nj9NDyWg==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
+      react-dom: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
+    dependencies:
+      exenv: 1.2.2
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-lifecycles-compat: 3.0.4
+      warning: 4.0.3
     dev: false
 
   /react-movable/2.5.4_biqbaboplfbrettd7655fr4n2y:
@@ -3417,7 +3479,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
@@ -3507,7 +3568,6 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /semver/6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
@@ -3692,6 +3752,9 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+
+  /tslib/2.0.1:
+    resolution: {integrity: sha512-SgIkNheinmEBgx1IUNirK0TUD4X9yjjBRTqqjggWCU3pUEqIk3/Uwl3yRixYKT6WjQuGiwDv4NomL3wqRCj+CQ==}
 
   /tslib/2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}

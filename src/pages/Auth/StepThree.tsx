@@ -1,34 +1,35 @@
-import React, { useEffect } from 'react';
-import * as yup from 'yup';
-import { useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import React, { ChangeEvent, useEffect, useRef } from 'react';
 import * as css from './css';
 import BlankAvatar from '../../assets/images/BlankAvatar.png';
 import { ReactComponent as PlusIcon } from '../../assets/images/icons/plus-icon.svg';
 import { useUserStore } from '../../store/userStore';
+import SelfieModal, { SelfieModalRef } from '../../components/SelfieModal';
+import { UploadSelfie } from '../../types/user';
 
 const AuthStepThree = () => {
-  const { user, getUser } = useUserStore((state) => state);
-  const navigate = useNavigate();
+  const { user, getUser, uploadNewSelfie } = useUserStore((state) => state);
 
-  const initialValues = {};
+  const cropSelfieRef = useRef<SelfieModalRef>(null);
 
-  const validationSchema = yup.object({
-    phoneNumber: yup.string().required("Field can't be empty"),
-  });
+  const handleSelfieCrop = (e: ChangeEvent<HTMLInputElement>) => {
+    const avatar = e.target.files?.[0];
 
-  const { values, errors, handleSubmit, handleChange, resetForm } = useFormik({
-    initialValues,
-    validationSchema,
-    validateOnChange: true,
-    onSubmit: (values) => {},
-  });
+    if (!avatar) {
+      return;
+    }
+
+    cropSelfieRef.current?.load(avatar);
+  };
+
+  const handleSelfieUpload = async ({ top, left, file }: UploadSelfie) => {
+    await uploadNewSelfie({ top, left, file });
+  };
 
   useEffect(() => {
     if (!user) {
       getUser();
     }
-  }, []);
+  }, [user]);
 
   return (
     <div css={css.container(72)}>
@@ -40,13 +41,14 @@ const AuthStepThree = () => {
           </p>
         </div>
         <div css={css.avatarContainer}>
-          <img src={BlankAvatar} alt="Blank avatar" />
+          <img src={BlankAvatar} alt="Avatar" />
           <label css={css.avatarUpload}>
             <PlusIcon />
-            <input type="file" />
+            <input type="file" accept="image/*" onChange={handleSelfieCrop} />
           </label>
         </div>
       </div>
+      <SelfieModal ref={cropSelfieRef} onChange={handleSelfieUpload} />
     </div>
   );
 };
