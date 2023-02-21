@@ -7,6 +7,16 @@ export const modal: CSSWithTheme = () => ({
   borderRadius: '20px',
   padding: '23px 15px 40px',
   fontFamily: 'Futura PT',
+
+  '@media (max-width: 425px)': {
+    height: '100vh',
+    width: '100vw',
+    borderRadius: '0',
+
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
 });
 
 export const header: CSSWithTheme = () => ({
@@ -30,6 +40,10 @@ export const modalTitle: CSSWithTheme = () => ({
 
 export const modalBody: CSSWithTheme = () => ({
   marginTop: '94px',
+
+  '@media (max-width: 425px)': {
+    margin: '0',
+  },
 });
 
 export const modalText: CSSWithTheme = () => ({

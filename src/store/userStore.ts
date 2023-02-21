@@ -1,16 +1,25 @@
 import { create } from 'zustand';
 import { getUser, getUserSelfieThumbnail, uploadNewSelfie } from '../api/user';
+import { useAuthStore } from './authStore';
 import { UserStore } from './types';
 
 export const useUserStore = create<UserStore>()((set, get) => ({
   user: null,
+  albums: {
+    isLoading: true,
+    value: [],
+  },
+
   selfieThumbnail: { src: '', file: null },
 
   getUser: async () => {
     const { data } = await getUser();
     set({ user: data.user });
 
-    await get().getUserSelfieThumbnail();
+    if (data.user.selfieId) {
+      await get().getUserSelfieThumbnail();
+    }
+    useAuthStore.setState({ isLoading: false });
   },
   getUserSelfieThumbnail: async () => {
     const { data } = await getUserSelfieThumbnail();

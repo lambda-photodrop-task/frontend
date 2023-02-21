@@ -30,11 +30,12 @@ export const useAuthStore = create<AuthStore>()(
 
         if (data.userType === 'User') {
           await checkUserAuthorization();
+          await useUserStore.getState().getUser();
         } else if (data.userType === 'Photographer') {
           await checkPhotographerAuthorization();
         }
 
-        set({ isLoggedIn: true, isLoading: false, role: data.userType });
+        set({ isLoggedIn: true, role: data.userType });
       },
       startUserAuth: async ({ phone }: { phone: string }) => {
         await initiateUserAuth({ phone });
@@ -44,10 +45,19 @@ export const useAuthStore = create<AuthStore>()(
         const { data } = await finishUserAuth({ phone, otp });
         const { accessToken, refreshToken, user } = data;
 
+        set({
+          tokens: { accessToken, refreshToken },
+        });
+
         useUserStore.setState({ user });
+
+        if (user.selfieId) {
+          await useUserStore.getState().getUserSelfieThumbnail();
+        }
+
         set({
           isLoggedIn: true,
-          tokens: { accessToken, refreshToken },
+          isLoading: false,
         });
       },
 
