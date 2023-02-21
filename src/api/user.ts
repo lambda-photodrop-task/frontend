@@ -1,5 +1,4 @@
-import { User } from '../store/types';
-import { UploadSelfie } from '../types/user';
+import { UploadSelfie, User } from '../types/user';
 import { instance } from './instance';
 
 export const getUser = async () => instance.get<{ user: User }>('/user/profile');
