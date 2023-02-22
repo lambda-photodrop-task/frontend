@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as css from './css';
 import { ReactComponent as EmptyStateIcon } from '../../../assets/images/icons/empty-state-icon.svg';
 import ArtistPrintOne from '../../../assets/images/ArtistPrintOne.png';
 import ArtistPrintTwo from '../../../assets/images/ArtistPrintTwo.png';
 import ArtistPrintThree from '../../../assets/images/ArtistPrintThree.png';
 import { useUserStore } from '../../../store/userStore';
+import LightboxModal from '../../../components/LightboxModal';
 
 const UserMain = () => {
   const { albums } = useUserStore((state) => state);
+
+  const artistPrints = [ArtistPrintOne, ArtistPrintTwo, ArtistPrintThree];
+
+  const [selectedImage, setSelectedImage] = useState<string>('');
 
   return (
     <div css={css.container}>
@@ -19,11 +24,12 @@ const UserMain = () => {
       <div css={css.printsContainer}>
         <h2>Browse Artist Prints</h2>
         <div css={css.printsContent}>
-          <div css={css.artistPrint(ArtistPrintOne)} />
-          <div css={css.artistPrint(ArtistPrintTwo)} />
-          <div css={css.artistPrint(ArtistPrintThree)} />
+          {artistPrints.map((print) => (
+            <div css={css.artistPrint(print)} onClick={() => setSelectedImage(print)} />
+          ))}
         </div>
       </div>
+      <LightboxModal isOpen={!!selectedImage} onRequestClose={() => setSelectedImage('')} image={selectedImage} />
     </div>
   );
 };

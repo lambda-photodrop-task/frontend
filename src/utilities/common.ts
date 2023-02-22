@@ -29,3 +29,19 @@ export const resizeImage = (file: File) =>
       285
     );
   });
+
+export const getImageOrientation = (src: string) => {
+  let orientation;
+  const img = new Image();
+  img.src = src;
+
+  if (img.naturalWidth > img.naturalHeight) {
+    orientation = 'landscape';
+  } else if (img.naturalWidth < img.naturalHeight) {
+    orientation = 'portrait';
+  } else {
+    orientation = 'even';
+  }
+
+  return orientation;
+};
