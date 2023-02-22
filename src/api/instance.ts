@@ -20,12 +20,7 @@ const handleErrors = async (err: AxiosError<{ message: string }>) => {
     const originalRequest = err.config!;
     const { refreshToken } = useAuthStore.getState().tokens;
 
-    if (err.response.data.message === 'Invalid refresh token') {
-      useAuthStore.setState({ tokens: { accessToken: '', refreshToken: '' } });
-      return Promise.reject(err);
-    }
-
-    if (!refreshToken) {
+    if (err.response.data.message === 'Invalid refresh token' || !refreshToken) {
       useAuthStore.setState({ tokens: { accessToken: '', refreshToken: '' }, isLoading: false });
       return Promise.reject(err);
     }

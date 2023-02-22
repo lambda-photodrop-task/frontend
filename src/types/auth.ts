@@ -1,4 +1,5 @@
-import { Photographer, User } from '../store/types';
+import { Photographer } from './photographer';
+import { User } from './user';
 
 export interface FinishUserAuthResponse {
   refreshToken: string;

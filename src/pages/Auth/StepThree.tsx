@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useRef } from 'react';
+import React, { MouseEvent, ChangeEvent, useEffect, useRef } from 'react';
 import * as css from './css';
 import BlankAvatar from '../../assets/images/BlankAvatar.png';
 import { ReactComponent as PlusIcon } from '../../assets/images/icons/plus-icon.svg';
@@ -19,6 +19,10 @@ const AuthStepThree = () => {
     }
 
     cropSelfieRef.current?.load(avatar);
+  };
+
+  const handleDeletePreviousFile = (e: MouseEvent<HTMLInputElement>) => {
+    (e.target as HTMLInputElement).value = '';
   };
 
   const handleSelfieUpload = async ({ top, left, file }: UploadSelfie) => {
@@ -44,7 +48,7 @@ const AuthStepThree = () => {
           <img src={BlankAvatar} alt="Avatar" />
           <label css={css.avatarUpload}>
             <PlusIcon />
-            <input type="file" accept="image/*" onChange={handleSelfieCrop} />
+            <input type="file" accept="image/*" onChange={handleSelfieCrop} onClick={handleDeletePreviousFile} />
           </label>
         </div>
       </div>

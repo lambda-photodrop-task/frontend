@@ -24,5 +24,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 'off',
     'import/no-cycle': 'off',
     'react/no-unstable-nested-components': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
   },
 };

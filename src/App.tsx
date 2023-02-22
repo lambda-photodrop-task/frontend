@@ -11,9 +11,13 @@ import { useAuthStore } from './store/authStore';
 import Header from './components/Header';
 import Loader from './components/Loader';
 import PhotographerMain from './pages/Photographer/Main';
+import { useUserStore } from './store/userStore';
+import UserMain from './pages/User/Main';
+import Footer from './components/Footer';
 
 const App = () => {
   const { isLoggedIn, init } = useAuthStore((state) => state);
+  const { user } = useUserStore((state) => state);
 
   useEffect(() => {
     init();
@@ -37,14 +41,22 @@ const App = () => {
   } else {
     routes = (
       <Routes>
-        <Route path="/auth/step-three" element={<AuthStepThree />} />
+        {user?.selfieId ? (
+          <Route path="/user" element={<UserMain />} />
+        ) : (
+          <Route path="/auth/step-three" element={<AuthStepThree />} />
+        )}
 
-        <Route path="/photographer/dashboard" element={<PhotographerMain />} />
+        <Route path="/photographer" element={<PhotographerMain />} />
 
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
 
-        <Route path="*" element={<Navigate to="/auth/step-three" replace />} />
+        {user?.selfieId ? (
+          <Route path="*" element={<Navigate to="/user" replace />} />
+        ) : (
+          <Route path="*" element={<Navigate to="/auth/step-three" replace />} />
+        )}
       </Routes>
     );
   }
@@ -53,6 +65,7 @@ const App = () => {
     <Loader>
       <Header />
       {routes}
+      {isLoggedIn && <Footer />}
       <Notification />
     </Loader>
   );
