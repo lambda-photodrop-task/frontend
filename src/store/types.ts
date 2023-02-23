@@ -1,5 +1,5 @@
 import { Photographer } from '../types/photographer';
-import { Album, UploadSelfie, User } from '../types/user';
+import { Album, Photo, UploadSelfie, User } from '../types/user';
 
 export interface AuthStore {
   isLoggedIn: boolean;
