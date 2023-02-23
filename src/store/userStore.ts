@@ -1,13 +1,17 @@
 import { create } from 'zustand';
-import { getUser, getUserSelfieThumbnail, uploadNewSelfie } from '../api/user';
+import { getAlbums, getPhotos, getUser, getUserSelfieThumbnail, uploadNewSelfie } from '../api/user';
 import { useAuthStore } from './authStore';
 import { UserStore } from './types';
 
 export const useUserStore = create<UserStore>()((set, get) => ({
   user: null,
   albums: {
-    isLoading: true,
-    value: [],
+    data: [],
+    status: 'Pending',
+  },
+  photos: {
+    data: [],
+    status: 'Pending',
   },
 
   selfieThumbnail: { src: '', file: null },
@@ -33,5 +37,19 @@ export const useUserStore = create<UserStore>()((set, get) => ({
     await uploadNewSelfie({ top, left, file });
 
     await get().getUserSelfieThumbnail();
+  },
+  getAlbums: async () => {
+    set({ albums: { data: get().albums.data, status: 'Loading' } });
+
+    const { data } = await getAlbums();
+
+    set({ albums: { data: data.albums, status: 'Fullfilled' } });
+  },
+  getPhotos: async () => {
+    set({ photos: { data: get().photos.data, status: 'Loading' } });
+
+    const { data } = await getPhotos();
+
+    set({ photos: { data: data.photos, status: 'Fullfilled' } });
   },
 }));
