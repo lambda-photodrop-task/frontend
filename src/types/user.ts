@@ -21,3 +21,9 @@ export interface Album {
   thumbnail: string;
   isPurchased: boolean;
 }
+
+export interface Photo {
+  id: string;
+  creationDate: string;
+  isPurchased: boolean;
+}

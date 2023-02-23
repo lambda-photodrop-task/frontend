@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { ReactComponent as CloseIcon } from '../../assets/images/icons/close-icon.svg';
 import { ReactComponent as DownloadIcon } from '../../assets/images/icons/download-icon.svg';
@@ -12,7 +12,7 @@ interface LightboxModalProps extends ReactModalProps {
   image: string;
 }
 
-const LightboxModal: FC<LightboxModalProps> = ({ isOpen, onRequestClose, image, children }) => {
+const LightboxModal: FC<LightboxModalProps> = ({ isOpen, onRequestClose, image }) => {
   const downloadImage = () => {
     const downloadLink = document.createElement('a');
 
@@ -40,12 +40,10 @@ const LightboxModal: FC<LightboxModalProps> = ({ isOpen, onRequestClose, image, 
     navigator.share(shareData);
   };
 
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
-  }, [isOpen]);
-
   return (
     <ReactModal
+      onAfterOpen={() => (document.body.style.overflow = 'hidden')}
+      onAfterClose={() => (document.body.style.overflow = 'unset')}
       onRequestClose={onRequestClose}
       appElement={document.getElementById('root') || undefined}
       overlayElement={(props, contentElement) => (

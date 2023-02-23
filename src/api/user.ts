@@ -1,4 +1,4 @@
-import { UploadSelfie, User } from '../types/user';
+import { Album, Photo, UploadSelfie, User } from '../types/user';
 import { instance } from './instance';
 
 export const getUser = async () => instance.get<{ user: User }>('/user/profile');
@@ -15,3 +15,7 @@ export const uploadNewSelfie = async ({ top, left, file }: UploadSelfie) => {
 };
 
 export const getUserSelfieThumbnail = async () => instance.get<Blob>('/user/selfie/thumb', { responseType: 'blob' });
+
+export const getAlbums = async () => instance.get<{ albums: Album[] }>('/user/albums');
+
+export const getPhotos = async () => instance.get<{ photos: Photo[] }>('/user/photos');

@@ -1,5 +1,5 @@
 import { Photographer } from '../types/photographer';
-import { Album, UploadSelfie, User } from '../types/user';
+import { Album, Photo, UploadSelfie, User } from '../types/user';
 
 export interface AuthStore {
   isLoggedIn: boolean;
@@ -20,11 +20,17 @@ export interface AuthStore {
 
 export type UserType = 'Admin' | 'User' | 'Photographer' | 'Unknown';
 
+export type Status = 'Pending' | 'Loading' | 'Fullfilled';
+
 export interface UserStore {
   user: User | null;
   albums: {
-    isLoading: boolean;
-    value: Album[];
+    data: Album[];
+    status: Status;
+  };
+  photos: {
+    data: Photo[];
+    status: Status;
   };
 
   selfieThumbnail: { src: string; file: File | null };
@@ -32,6 +38,9 @@ export interface UserStore {
   getUser: () => Promise<void>;
   getUserSelfieThumbnail: () => Promise<void>;
   uploadNewSelfie: ({ top, left, file }: UploadSelfie) => Promise<void>;
+
+  getAlbums: () => Promise<void>;
+  getPhotos: () => Promise<void>;
 }
 
 export interface PhotographerStore {
