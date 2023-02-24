@@ -1,11 +1,11 @@
-import React, { forwardRef, useImperativeHandle, useState } from 'react';
-import Cropper, { Point } from 'react-easy-crop';
+import React, { ChangeEvent, forwardRef, useImperativeHandle, useState } from 'react';
+import Cropper, { Area, Point } from 'react-easy-crop';
 import Modal from '../Modal';
 import { ReactComponent as CloseIcon } from '../../assets/images/icons/close-icon.svg';
 
 import * as css from './css';
-import { readFile, resizeImage } from '../../utilities/common';
 import { UploadSelfie } from '../../types/user';
+import { getImageOrientation, handleDeletePreviousFile, readFile, resizeImage } from '../../utilities/common';
 
 export interface SelfieModalRef {
   load: (file: File) => void;
@@ -13,13 +13,17 @@ export interface SelfieModalRef {
 
 interface SelfieModalProps {
   onChange: ({ top, left, file }: UploadSelfie) => void;
+  handleSelfieCrop: (e: ChangeEvent<HTMLInputElement>) => void;
+  loading?: boolean;
 }
 
-const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange }, ref) => {
+const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange, loading, handleSelfieCrop }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imageOrientation, setImageOrientation] = useState('');
 
   const [file, setFile] = useState<File | undefined>(undefined);
   const [src, setSrc] = useState<string | undefined>(undefined);
+  const [croppedAreadPixels, setCroppedAreadPixels] = useState<Area>();
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState<number>(1);
 
@@ -28,8 +32,13 @@ const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange }, 
   }));
 
   const onLoad = async (file: File) => {
-    const resizedImg = (await resizeImage(file)) as File;
-    const imageDataUrl = (await readFile(resizedImg)) as string;
+    let imageDataUrl = (await readFile(file)) as string;
+
+    const orientaion = await getImageOrientation(imageDataUrl);
+    setImageOrientation(orientaion);
+
+    const resizedImg = (await resizeImage(file, orientaion)) as File;
+    imageDataUrl = (await readFile(resizedImg)) as string;
 
     setFile(resizedImg);
     setSrc(imageDataUrl);
@@ -39,9 +48,8 @@ const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange }, 
 
   const onSubmit = () => {
     if (file) {
-      onChange({ top: Math.trunc(Math.abs(crop.y)), left: Math.trunc(Math.abs(crop.x)), file });
+      onChange({ top: Math.trunc(Math.abs(croppedAreadPixels?.y!)), left: Math.trunc(Math.abs(crop.x)), file });
     }
-    setIsModalOpen(false);
   };
 
   return (
@@ -52,25 +60,28 @@ const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange }, 
       </div>
       <div css={css.modalBody}>
         <div css={css.modalText}>Drag and zoom image to crop</div>
-        <div css={css.cropperContainer}>
+        <div css={css.cropperContainer(imageOrientation)}>
           <Cropper
             image={src}
             crop={crop}
             zoom={zoom}
             aspect={1}
-            onCropChange={(crop) => setCrop(crop)}
-            onZoomChange={(zoom) => setZoom(zoom)}
             cropShape="round"
             showGrid={false}
+            onCropChange={(crop) => setCrop({ x: crop.x < 0 ? crop.x : 0, y: crop.y })}
+            onZoomChange={(zoom) => setZoom(zoom)}
+            cropSize={{ width: 285, height: 285 }}
+            onCropAreaChange={(_, croppedAreadPixels) => setCroppedAreadPixels(croppedAreadPixels)}
           />
         </div>
       </div>
       <div css={css.modalFooter}>
-        <button css={css.button('secondary')} type="button">
+        <label css={css.button('secondary')}>
           Retake
-        </button>
+          <input type="file" accept="image/*" onChange={handleSelfieCrop} onClick={handleDeletePreviousFile} />
+        </label>
         <button css={css.button} type="button" onClick={onSubmit}>
-          Save
+          {loading ? 'Loading...' : 'Save'}
         </button>
       </div>
     </Modal>

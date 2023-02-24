@@ -1,13 +1,15 @@
-import React, { MouseEvent, ChangeEvent, useEffect, useRef } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import * as css from './css';
 import BlankAvatar from '../../assets/images/BlankAvatar.png';
 import { ReactComponent as PlusIcon } from '../../assets/images/icons/plus-icon.svg';
 import { useUserStore } from '../../store/userStore';
 import SelfieModal, { SelfieModalRef } from '../../components/SelfieModal';
 import { UploadSelfie } from '../../types/user';
+import { handleDeletePreviousFile } from '../../utilities/common';
 
 const AuthStepThree = () => {
   const { user, getUser, uploadNewSelfie } = useUserStore((state) => state);
+  const [loading, setIsLoading] = useState(false);
 
   const cropSelfieRef = useRef<SelfieModalRef>(null);
 
@@ -21,11 +23,8 @@ const AuthStepThree = () => {
     cropSelfieRef.current?.load(avatar);
   };
 
-  const handleDeletePreviousFile = (e: MouseEvent<HTMLInputElement>) => {
-    (e.target as HTMLInputElement).value = '';
-  };
-
   const handleSelfieUpload = async ({ top, left, file }: UploadSelfie) => {
+    setIsLoading(true);
     await uploadNewSelfie({ top, left, file });
   };
 
@@ -52,7 +51,12 @@ const AuthStepThree = () => {
           </label>
         </div>
       </div>
-      <SelfieModal ref={cropSelfieRef} onChange={handleSelfieUpload} />
+      <SelfieModal
+        ref={cropSelfieRef}
+        onChange={handleSelfieUpload}
+        handleSelfieCrop={handleSelfieCrop}
+        loading={loading}
+      />
     </div>
   );
 };

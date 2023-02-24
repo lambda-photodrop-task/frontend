@@ -7,6 +7,7 @@ import {
   initiateUserAuth,
   photographerAuth,
   checkPhotographerAuthorization,
+  resendConfirmationCode,
 } from '../api/auth';
 import { AuthStore } from './types';
 import { useUserStore } from './userStore';
@@ -16,7 +17,9 @@ export const useAuthStore = create<AuthStore>()(
     (set, get) => ({
       isLoggedIn: false,
       isLoading: true,
+
       role: 'Unknown',
+
       tokens: { accessToken: '', refreshToken: '' },
       phone: '',
 
@@ -40,6 +43,9 @@ export const useAuthStore = create<AuthStore>()(
       startUserAuth: async ({ phone }: { phone: string }) => {
         await initiateUserAuth({ phone });
         set({ phone });
+      },
+      resendConfirmationCode: async () => {
+        await resendConfirmationCode({ phone: get().phone });
       },
       finishUserAuth: async ({ phone, otp }: { phone: string; otp: string }) => {
         const { data } = await finishUserAuth({ phone, otp });

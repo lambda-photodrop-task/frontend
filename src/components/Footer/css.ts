@@ -1,6 +1,7 @@
-export const container: CSSWithTheme = () => ({
+export const container: CSSWithTheme = (isVisible: boolean) => ({
   backgroundColor: '#262626',
   padding: '60px 0 40px',
+  display: isVisible ? 'block' : 'none',
 });
 
 export const content: CSSWithTheme = () => ({

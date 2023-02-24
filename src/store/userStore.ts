@@ -20,7 +20,7 @@ export const useUserStore = create<UserStore>()((set, get) => ({
     const { data } = await getUser();
     set({ user: data.user });
 
-    if (data.user.selfieId) {
+    if (data.user.selfieId && !get().selfieThumbnail.src) {
       await get().getUserSelfieThumbnail();
     }
     useAuthStore.setState({ isLoading: false });
@@ -37,6 +37,7 @@ export const useUserStore = create<UserStore>()((set, get) => ({
     await uploadNewSelfie({ top, left, file });
 
     await get().getUserSelfieThumbnail();
+    await get().getUser();
   },
   getAlbums: async () => {
     set({ albums: { data: get().albums.data, status: 'Loading' } });

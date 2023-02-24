@@ -12,7 +12,7 @@ interface AuthStepTwoValues {
 }
 
 const AuthStepTwo = () => {
-  const { phone, finishUserAuth } = useAuthStore((state) => state);
+  const { phone, resendConfirmationCode, finishUserAuth } = useAuthStore((state) => state);
   const navigate = useNavigate();
 
   const initialValues: AuthStepTwoValues = {
@@ -48,7 +48,9 @@ const AuthStepTwo = () => {
             Enter the code sent to <b>{phone}</b>
           </p>
           <CodeInput value={values.otp} handleChange={handleChange} />
-          <p css={css.inputResendCode}>Resend code</p>
+          <p css={css.inputResendCode} onClick={() => resendConfirmationCode()}>
+            Resend code
+          </p>
         </div>
         <button type="submit" css={css.button} disabled={!isObjectEmpty(errors) || isSubmitting}>
           Next

@@ -54,24 +54,20 @@ export const modalText: CSSWithTheme = () => ({
   textAlign: 'center',
 });
 
-export const cropperContainer: CSSWithTheme = () => ({
-  position: 'relative',
-  marginTop: '42px',
+export const cropperContainer: CSSWithTheme = (orientation: string) => ({
+  margin: '42px auto 0',
   height: '285px',
+  width: '285px',
+  position: 'relative',
 
   '.reactEasyCrop_Container': {
     img: {
-      maxHeight: '285px',
-      height: '285px',
-
-      maxWidth: 'unset',
-      width: 'auto',
+      maxWidth: orientation === 'landscape' ? 'fit-content' : '285px',
+      maxHeight: orientation === 'landscape' ? '285px' : 'fit-content',
     },
 
     '.reactEasyCrop_CropArea': {
       color: '#262626',
-      // height: '285px !important',
-      // width: '285px !important',
       border: 'none',
     },
   },
@@ -82,6 +78,10 @@ export const modalFooter: CSSWithTheme = () => ({
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
   gap: '10px',
+
+  input: {
+    display: 'none',
+  },
 });
 
 export const button: CSSWithTheme = (type: string) => ({
@@ -91,6 +91,9 @@ export const button: CSSWithTheme = (type: string) => ({
   fontWeight: 500,
   fontSize: '18px',
   lineHeight: '23px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 
   width: '170px',
   height: '50px',

@@ -1,9 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { ReactComponent as CloseIcon } from '../../assets/images/icons/close-icon.svg';
 import { ReactComponent as DownloadIcon } from '../../assets/images/icons/download-icon.svg';
 import { ReactComponent as ShareIcon } from '../../assets/images/icons/share-icon.svg';
-
 import { getImageOrientation } from '../../utilities/common';
 
 import * as css from './css';
@@ -13,6 +12,8 @@ interface LightboxModalProps extends ReactModalProps {
 }
 
 const LightboxModal: FC<LightboxModalProps> = ({ isOpen, onRequestClose, image }) => {
+  const [imageOrientation, setImageOrientation] = useState('');
+
   const downloadImage = () => {
     const downloadLink = document.createElement('a');
 
@@ -40,6 +41,15 @@ const LightboxModal: FC<LightboxModalProps> = ({ isOpen, onRequestClose, image }
     navigator.share(shareData);
   };
 
+  useEffect(() => {
+    const identifyImageOrientation = async () => {
+      const orientation = await getImageOrientation(image);
+      setImageOrientation(orientation);
+    };
+
+    identifyImageOrientation();
+  }, [image]);
+
   return (
     <ReactModal
       onAfterOpen={() => (document.body.style.overflow = 'hidden')}
@@ -56,7 +66,7 @@ const LightboxModal: FC<LightboxModalProps> = ({ isOpen, onRequestClose, image }
     >
       <div>
         <CloseIcon onClick={onRequestClose} css={css.closeIcon} />
-        <div css={css.image(getImageOrientation(image))}>
+        <div css={css.image(imageOrientation)}>
           <img src={image} alt="Enlarged Selection" />
         </div>
         <div css={css.footer}>

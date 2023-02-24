@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import * as css from './css';
 import ArtistPrintOne from '../../../assets/images/ArtistPrintOne.png';
 import ArtistPrintTwo from '../../../assets/images/ArtistPrintTwo.png';
 import ArtistPrintThree from '../../../assets/images/ArtistPrintThree.png';
@@ -7,6 +6,7 @@ import { useUserStore } from '../../../store/userStore';
 import LightboxModal from '../../../components/LightboxModal';
 import Skeleton from '../../../components/Skeleton';
 import { ReactComponent as EmptyStateIcon } from '../../../assets/images/icons/empty-state-icon.svg';
+import * as css from './css';
 
 const UserMain = () => {
   const { albums, photos, getAlbums, getPhotos } = useUserStore((state) => state);
@@ -24,7 +24,8 @@ const UserMain = () => {
 
   return (
     <div css={css.container}>
-      {albums.status === 'Fullfilled' && !albums.data.length ? (
+      {(albums.status === 'Fullfilled' && !albums.data.length) ||
+      (photos.status === 'Fullfilled' && !photos.data.length) ? (
         <>
           <div css={css.emptyStateContainer}>
             <EmptyStateIcon />
