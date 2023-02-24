@@ -1,4 +1,5 @@
 import Resizer from 'react-image-file-resizer';
+import { MouseEvent } from 'react';
 
 export const isObjectEmpty = (object: Object) => {
   for (const key in object) return false;
@@ -51,4 +52,8 @@ export const getImageOrientation = async (src: string) => {
   orientation = await imageLoadPromise;
 
   return orientation as string;
+};
+
+export const handleDeletePreviousFile = (e: MouseEvent<HTMLInputElement>) => {
+  (e.target as HTMLInputElement).value = '';
 };

@@ -78,6 +78,10 @@ export const modalFooter: CSSWithTheme = () => ({
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
   gap: '10px',
+
+  input: {
+    display: 'none',
+  },
 });
 
 export const button: CSSWithTheme = (type: string) => ({
@@ -87,6 +91,9 @@ export const button: CSSWithTheme = (type: string) => ({
   fontWeight: 500,
   fontSize: '18px',
   lineHeight: '23px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 
   width: '170px',
   height: '50px',

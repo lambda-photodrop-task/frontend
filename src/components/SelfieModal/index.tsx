@@ -1,11 +1,11 @@
-import React, { forwardRef, useImperativeHandle, useState } from 'react';
+import React, { ChangeEvent, forwardRef, useImperativeHandle, useState } from 'react';
 import Cropper, { Area, Point } from 'react-easy-crop';
 import Modal from '../Modal';
 import { ReactComponent as CloseIcon } from '../../assets/images/icons/close-icon.svg';
 
 import * as css from './css';
 import { UploadSelfie } from '../../types/user';
-import { getImageOrientation, readFile, resizeImage } from '../../utilities/common';
+import { getImageOrientation, handleDeletePreviousFile, readFile, resizeImage } from '../../utilities/common';
 
 export interface SelfieModalRef {
   load: (file: File) => void;
@@ -13,10 +13,11 @@ export interface SelfieModalRef {
 
 interface SelfieModalProps {
   onChange: ({ top, left, file }: UploadSelfie) => void;
+  handleSelfieCrop: (e: ChangeEvent<HTMLInputElement>) => void;
   loading?: boolean;
 }
 
-const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange, loading }, ref) => {
+const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange, loading, handleSelfieCrop }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageOrientation, setImageOrientation] = useState('');
 
@@ -75,9 +76,10 @@ const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange, lo
         </div>
       </div>
       <div css={css.modalFooter}>
-        <button css={css.button('secondary')} type="button">
+        <label css={css.button('secondary')}>
           Retake
-        </button>
+          <input type="file" accept="image/*" onChange={handleSelfieCrop} onClick={handleDeletePreviousFile} />
+        </label>
         <button css={css.button} type="button" onClick={onSubmit}>
           {loading ? 'Loading...' : 'Save'}
         </button>
