@@ -6,7 +6,6 @@ export const container: CSSWithTheme = () => ({
   borderBottom: '1px solid #F1F0EC',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
 
   '@media (max-width: 425px)': {
     padding: '0 15px',
@@ -14,9 +13,43 @@ export const container: CSSWithTheme = () => ({
   },
 });
 
-export const avatar: CSSWithTheme = () => ({
-  width: '35px',
-  heiight: '35px',
-  borderRadius: '50%',
-  cursor: 'pointer',
+export const backButton: CSSWithTheme = (isVisible: boolean) => ({
+  flex: 1,
+
+  a: {
+    display: isVisible ? 'flex' : 'none',
+    cursor: 'pointer',
+    width: '35px',
+    height: '35px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: '50%',
+    transition: 'all 0.2s',
+
+    ':hover': {
+      background: 'rgba(0, 0, 0, 0.05)',
+    },
+  },
+
+  svg: {
+    marginLeft: '-3px',
+  },
+});
+
+export const avatar: CSSWithTheme = (isVisible: boolean) => ({
+  flex: 1,
+  display: 'flex',
+  justifyContent: 'end',
+
+  a: {
+    display: isVisible ? 'block' : 'none',
+  },
+
+  img: {
+    width: '35px',
+    flexShrink: 0,
+    height: '35px',
+    borderRadius: '50%',
+    cursor: 'pointer',
+  },
 });

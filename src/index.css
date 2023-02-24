@@ -44,25 +44,25 @@ html {
   box-sizing: inherit;
 }
 
-body,
+body {
+  margin: 0;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-p {
-  margin: 0;
-}
-
-h1 {
+h6 {
   font-family: 'Termina';
   color: var(--main-text-color);
+  margin: 0;
 }
 
 p {
   font-family: 'Futura PT';
   color: var(--main-text-color);
+  margin: 0;
 }
 
 button {

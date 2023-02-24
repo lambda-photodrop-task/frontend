@@ -12,12 +12,12 @@ export const readFile = async (file: File) =>
     reader.readAsDataURL(file);
   });
 
-export const resizeImage = (file: File) =>
+export const resizeImage = (file: File, orientation: string) =>
   new Promise((resolve) => {
     Resizer.imageFileResizer(
       file,
-      1400,
-      285,
+      orientation === 'landscape' ? 2560 : 285,
+      orientation === 'landscape' ? 285 : 2560,
       'PNG',
       100,
       0,
@@ -30,18 +30,25 @@ export const resizeImage = (file: File) =>
     );
   });
 
-export const getImageOrientation = (src: string) => {
+export const getImageOrientation = async (src: string) => {
   let orientation;
   const img = new Image();
   img.src = src;
 
-  if (img.naturalWidth > img.naturalHeight) {
-    orientation = 'landscape';
-  } else if (img.naturalWidth < img.naturalHeight) {
-    orientation = 'portrait';
-  } else {
-    orientation = 'even';
-  }
+  const imageLoadPromise = new Promise((resolve) => {
+    img.onload = () => {
+      if (img.naturalWidth > img.naturalHeight) {
+        orientation = 'landscape';
+      } else if (img.naturalWidth < img.naturalHeight) {
+        orientation = 'portrait';
+      } else {
+        orientation = 'even';
+      }
+      resolve(orientation);
+    };
+  });
 
-  return orientation;
+  orientation = await imageLoadPromise;
+
+  return orientation as string;
 };

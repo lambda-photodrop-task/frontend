@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ interface AuthStepTwoValues {
 }
 
 const AuthStepTwo = () => {
-  const { phone, finishUserAuth } = useAuthStore((state) => state);
+  const { phone, resendConfirmationCode, finishUserAuth } = useAuthStore((state) => state);
   const navigate = useNavigate();
 
   const initialValues: AuthStepTwoValues = {
@@ -35,6 +35,10 @@ const AuthStepTwo = () => {
 
   const handleChange = (value: string) => setFieldValue('otp', value);
 
+  useEffect(() => {
+    if (!phone) navigate('/auth/step-one');
+  }, []);
+
   return (
     <div css={css.container(106)}>
       <form css={css.content} onSubmit={handleSubmit}>
@@ -44,7 +48,9 @@ const AuthStepTwo = () => {
             Enter the code sent to <b>{phone}</b>
           </p>
           <CodeInput value={values.otp} handleChange={handleChange} />
-          <p css={css.inputResendCode}>Resend code</p>
+          <p css={css.inputResendCode} onClick={() => resendConfirmationCode()}>
+            Resend code
+          </p>
         </div>
         <button type="submit" css={css.button} disabled={!isObjectEmpty(errors) || isSubmitting}>
           Next

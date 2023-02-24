@@ -20,6 +20,11 @@ export const initiateUserAuth = async ({ phone }: { phone: string }) =>
     phone,
   });
 
+export const resendConfirmationCode = async ({ phone }: { phone: string }) =>
+  instance.patch('/auth/user/login', {
+    phone,
+  });
+
 export const finishUserAuth = async ({ phone, otp }: { phone: string; otp: string }) =>
   instance.put<FinishUserAuthResponse>('/auth/user/login', {
     phone,
