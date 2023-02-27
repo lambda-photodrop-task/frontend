@@ -33,8 +33,8 @@ export const useUserStore = create<UserStore>()((set, get) => ({
 
     set({ selfieThumbnail: { src, file } });
   },
-  uploadNewSelfie: async ({ top, left, file }) => {
-    await uploadNewSelfie({ top, left, file });
+  uploadNewSelfie: async ({ top, left, file, height, width }) => {
+    await uploadNewSelfie({ top, left, file, height, width });
 
     await get().getUserSelfieThumbnail();
     await get().getUser();

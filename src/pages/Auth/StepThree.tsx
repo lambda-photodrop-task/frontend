@@ -23,9 +23,9 @@ const AuthStepThree = () => {
     cropSelfieRef.current?.load(avatar);
   };
 
-  const handleSelfieUpload = async ({ top, left, file }: UploadSelfie) => {
+  const handleSelfieUpload = async ({ top, left, file, height, width }: UploadSelfie) => {
     setIsLoading(true);
-    await uploadNewSelfie({ top, left, file });
+    await uploadNewSelfie({ top, left, file, height, width });
   };
 
   useEffect(() => {

@@ -56,7 +56,13 @@ const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange, lo
 
   const onSubmit = () => {
     if (file) {
-      onChange({ top: croppedAreadPixels.y, left: croppedAreadPixels.x, file });
+      onChange({
+        top: croppedAreadPixels.y,
+        left: croppedAreadPixels.x,
+        height: croppedAreadPixels.height,
+        width: croppedAreadPixels.width,
+        file,
+      });
     }
   };
 
