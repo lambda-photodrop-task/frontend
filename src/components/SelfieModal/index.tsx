@@ -5,7 +5,7 @@ import { ReactComponent as CloseIcon } from '../../assets/images/icons/close-ico
 
 import * as css from './css';
 import { UploadSelfie } from '../../types/user';
-import { getImageOrientation, handleDeletePreviousFile, readFile, resizeImage } from '../../utilities/common';
+import { getImageDimensions, handleDeletePreviousFile, readFile, resizeImage } from '../../utilities/common';
 
 export interface SelfieModalRef {
   load: (file: File) => void;
@@ -19,7 +19,9 @@ interface SelfieModalProps {
 
 const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange, loading, handleSelfieCrop }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [imageOrientation, setImageOrientation] = useState('');
+  const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
 
   const [file, setFile] = useState<File | undefined>(undefined);
   const [src, setSrc] = useState<string | undefined>(undefined);
@@ -32,13 +34,19 @@ const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange, lo
   }));
 
   const onLoad = async (file: File) => {
+    setZoom(1);
+    setCrop({ x: 0, y: 0 });
+
     let imageDataUrl = (await readFile(file)) as string;
 
-    const orientaion = await getImageOrientation(imageDataUrl);
-    setImageOrientation(orientaion);
+    const { orientation } = await getImageDimensions(imageDataUrl);
+    setImageOrientation(orientation);
 
-    const resizedImg = (await resizeImage(file, orientaion)) as File;
+    const resizedImg = (await resizeImage(file, orientation)) as File;
     imageDataUrl = (await readFile(resizedImg)) as string;
+
+    const { width, height } = await getImageDimensions(imageDataUrl);
+    setImageDimensions({ width, height });
 
     setFile(resizedImg);
     setSrc(imageDataUrl);
@@ -60,19 +68,27 @@ const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange, lo
       </div>
       <div css={css.modalBody}>
         <div css={css.modalText}>Drag and zoom image to crop</div>
-        <div css={css.cropperContainer(imageOrientation)}>
-          <Cropper
-            image={src}
-            crop={crop}
-            zoom={zoom}
-            aspect={1}
-            cropShape="round"
-            showGrid={false}
-            onCropChange={(crop) => setCrop({ x: crop.x < 0 ? crop.x : 0, y: crop.y })}
-            onZoomChange={(zoom) => setZoom(zoom)}
-            cropSize={{ width: 285, height: 285 }}
-            onCropAreaChange={(_, croppedAreadPixels) => setCroppedAreadPixels(croppedAreadPixels)}
-          />
+        <div css={css.cropperContainer}>
+          <div
+            css={css.cropper({
+              imageOrientation,
+              imageWidth: imageDimensions.width,
+              imageHeight: imageDimensions.height,
+            })}
+          >
+            <Cropper
+              image={src}
+              crop={crop}
+              zoom={zoom}
+              aspect={1}
+              cropShape="round"
+              showGrid={false}
+              onCropChange={(crop) => setCrop({ x: crop.x, y: crop.y })}
+              onZoomChange={(zoom) => setZoom(zoom)}
+              cropSize={{ width: 285, height: 285 }}
+              onCropAreaChange={(_, croppedAreadPixels) => setCroppedAreadPixels(croppedAreadPixels)}
+            />
+          </div>
         </div>
       </div>
       <div css={css.modalFooter}>

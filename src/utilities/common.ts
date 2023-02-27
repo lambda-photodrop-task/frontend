@@ -31,13 +31,19 @@ export const resizeImage = (file: File, orientation: string) =>
     );
   });
 
-export const getImageOrientation = async (src: string) => {
+export const getImageDimensions = async (src: string) => {
+  let imageDimensions;
   let orientation;
+  let height;
+  let width;
   const img = new Image();
   img.src = src;
 
   const imageLoadPromise = new Promise((resolve) => {
     img.onload = () => {
+      height = img.naturalHeight;
+      width = img.naturalWidth;
+
       if (img.naturalWidth > img.naturalHeight) {
         orientation = 'landscape';
       } else if (img.naturalWidth < img.naturalHeight) {
@@ -45,13 +51,14 @@ export const getImageOrientation = async (src: string) => {
       } else {
         orientation = 'even';
       }
-      resolve(orientation);
+      resolve({ orientation, height, width });
     };
   });
 
-  orientation = await imageLoadPromise;
+  // eslint-disable-next-line prefer-const
+  imageDimensions = await imageLoadPromise;
 
-  return orientation as string;
+  return imageDimensions as any;
 };
 
 export const handleDeletePreviousFile = (e: MouseEvent<HTMLInputElement>) => {

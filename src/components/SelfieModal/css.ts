@@ -54,18 +54,29 @@ export const modalText: CSSWithTheme = () => ({
   textAlign: 'center',
 });
 
-export const cropperContainer: CSSWithTheme = (orientation: string) => ({
-  margin: '42px auto 0',
-  height: '285px',
+export const cropperContainer: CSSWithTheme = () => ({
   width: '285px',
+  height: '285px',
+  overflow: 'hidden',
+  margin: '42px auto 0',
+});
+
+export const cropper: CSSWithTheme = ({
+  imageOrientation,
+  imageHeight,
+  imageWidth,
+}: {
+  imageOrientation: string;
+  imageHeight: number;
+  imageWidth: number;
+}) => ({
+  height: `${imageHeight}px`,
+  width: `${imageWidth}px`,
+  marginLeft: imageOrientation === 'landscape' ? `calc((285px - ${imageWidth}px) / 2)` : '0',
+  marginTop: imageOrientation === 'portrait' ? `calc((285px - ${imageHeight}px) / 2)` : '0',
   position: 'relative',
 
   '.reactEasyCrop_Container': {
-    img: {
-      maxWidth: orientation === 'landscape' ? 'fit-content' : '285px',
-      maxHeight: orientation === 'landscape' ? '285px' : 'fit-content',
-    },
-
     '.reactEasyCrop_CropArea': {
       color: '#262626',
       border: 'none',
