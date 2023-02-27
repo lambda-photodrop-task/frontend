@@ -3,7 +3,7 @@ import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { ReactComponent as CloseIcon } from '../../assets/images/icons/close-icon.svg';
 import { ReactComponent as DownloadIcon } from '../../assets/images/icons/download-icon.svg';
 import { ReactComponent as ShareIcon } from '../../assets/images/icons/share-icon.svg';
-import { getImageOrientation } from '../../utilities/common';
+import { getImageDimensions } from '../../utilities/common';
 
 import * as css from './css';
 
@@ -43,7 +43,7 @@ const LightboxModal: FC<LightboxModalProps> = ({ isOpen, onRequestClose, image }
 
   useEffect(() => {
     const identifyImageOrientation = async () => {
-      const orientation = await getImageOrientation(image);
+      const { orientation } = await getImageDimensions(image);
       setImageOrientation(orientation);
     };
 
