@@ -23,9 +23,9 @@ const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange, lo
   const [imageOrientation, setImageOrientation] = useState('');
   const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
 
+  const [croppedAreadPixels, setCroppedAreadPixels] = useState<Area>({ width: 0, height: 0, x: 0, y: 0 });
   const [file, setFile] = useState<File | undefined>(undefined);
   const [src, setSrc] = useState<string | undefined>(undefined);
-  const [croppedAreadPixels, setCroppedAreadPixels] = useState<Area>();
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState<number>(1);
 
@@ -56,7 +56,7 @@ const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange, lo
 
   const onSubmit = () => {
     if (file) {
-      onChange({ top: Math.trunc(Math.abs(croppedAreadPixels?.y!)), left: Math.trunc(Math.abs(crop.x)), file });
+      onChange({ top: croppedAreadPixels.y, left: croppedAreadPixels.x, file });
     }
   };
 
