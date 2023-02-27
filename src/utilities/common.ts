@@ -1,5 +1,5 @@
-import Resizer from 'react-image-file-resizer';
 import { MouseEvent } from 'react';
+import { createResizedImage } from './createResizedImage';
 
 export const isObjectEmpty = (object: Object) => {
   for (const key in object) return false;
@@ -15,7 +15,7 @@ export const readFile = async (file: File) =>
 
 export const resizeImage = (file: File, orientation: string) =>
   new Promise((resolve) => {
-    Resizer.imageFileResizer(
+    createResizedImage(
       file,
       orientation === 'landscape' ? 2560 : 285,
       orientation === 'landscape' ? 285 : 2560,

@@ -33,7 +33,6 @@ specifiers:
   react-dom: ^18.2.0
   react-easy-crop: ^4.7.1
   react-hot-toast: ^2.4.0
-  react-image-file-resizer: ^0.4.8
   react-modal: ^3.16.1
   react-otp-input: ^2.4.0
   react-router-dom: ^6.8.0
@@ -55,7 +54,6 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-easy-crop: 4.7.1_biqbaboplfbrettd7655fr4n2y
   react-hot-toast: 2.4.0_biqbaboplfbrettd7655fr4n2y
-  react-image-file-resizer: 0.4.8
   react-modal: 3.16.1_biqbaboplfbrettd7655fr4n2y
   react-otp-input: 2.4.0_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.8.0_biqbaboplfbrettd7655fr4n2y
@@ -3315,10 +3313,6 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     transitivePeerDependencies:
       - csstype
-    dev: false
-
-  /react-image-file-resizer/0.4.8:
-    resolution: {integrity: sha512-Ue7CfKnSlsfJ//SKzxNMz8avDgDSpWQDOnTKOp/GNRFJv4dO9L5YGHNEnj40peWkXXAK2OK0eRIoXhOYpUzUTQ==}
     dev: false
 
   /react-input-mask/2.0.4_biqbaboplfbrettd7655fr4n2y:
