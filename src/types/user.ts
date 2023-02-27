@@ -1,6 +1,8 @@
 export interface UploadSelfie {
   top: number;
   left: number;
+  height: number;
+  width: number;
   file: File;
 }
 
