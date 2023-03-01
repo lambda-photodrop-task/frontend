@@ -1,5 +1,15 @@
 import { create } from 'zustand';
-import { getAlbums, getPhotos, getUser, getUserSelfieThumbnail, uploadNewSelfie } from '../api/user';
+import {
+  getAlbums,
+  getPhotos,
+  getUser,
+  getUserSelfie,
+  getUserSelfieThumbnail,
+  updateUser,
+  uploadNewSelfie,
+  getNotificationsSettings,
+  updateNotificationsSettings,
+} from '../api/user';
 import { useAuthStore } from './authStore';
 import { UserStore } from './types';
 
@@ -13,8 +23,10 @@ export const useUserStore = create<UserStore>()((set, get) => ({
     data: [],
     status: 'Pending',
   },
+  notificationPreferences: null,
 
   selfieThumbnail: { src: '', file: null },
+  selfie: { src: '', file: null },
 
   getUser: async () => {
     const { data } = await getUser();
@@ -25,6 +37,11 @@ export const useUserStore = create<UserStore>()((set, get) => ({
     }
     useAuthStore.setState({ isLoading: false });
   },
+  updateUser: async ({ name, email }) => {
+    await updateUser({ name, email });
+
+    set({ user: { ...get().user!, name, email } });
+  },
   getUserSelfieThumbnail: async () => {
     const { data } = await getUserSelfieThumbnail();
 
@@ -32,6 +49,14 @@ export const useUserStore = create<UserStore>()((set, get) => ({
     const file = new File([data], 'image.png', { type: 'image/png', lastModified: Date.now() });
 
     set({ selfieThumbnail: { src, file } });
+  },
+  getUserSelfie: async () => {
+    const { data } = await getUserSelfie();
+
+    const src = URL.createObjectURL(data);
+    const file = new File([data], 'image.png', { type: 'image/png', lastModified: Date.now() });
+
+    set({ selfie: { src, file } });
   },
   uploadNewSelfie: async ({ top, left, file, height, width }) => {
     await uploadNewSelfie({ top, left, file, height, width });
@@ -52,5 +77,15 @@ export const useUserStore = create<UserStore>()((set, get) => ({
     const { data } = await getPhotos();
 
     set({ photos: { data: data.photos, status: 'Fullfilled' } });
+  },
+  getUserPreferences: async () => {
+    const { data } = await getNotificationsSettings();
+
+    set({ notificationPreferences: data.preferences });
+  },
+  updatedUserPreferences: async ({ isUnsubscribed, sendEmail, sendText }) => {
+    await updateNotificationsSettings({ isUnsubscribed, sendEmail, sendText });
+
+    set({ notificationPreferences: { isUnsubscribed, sendEmail, sendText } });
   },
 }));

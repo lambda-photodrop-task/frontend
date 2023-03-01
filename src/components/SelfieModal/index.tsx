@@ -12,7 +12,7 @@ export interface SelfieModalRef {
 }
 
 interface SelfieModalProps {
-  onChange: ({ top, left, file }: UploadSelfie) => void;
+  onChange: ({ top, left, file, height, width }: UploadSelfie) => Promise<void>;
   handleSelfieCrop: (e: ChangeEvent<HTMLInputElement>) => void;
   loading?: boolean;
 }
@@ -54,15 +54,16 @@ const SelfieModal = forwardRef<SelfieModalRef, SelfieModalProps>(({ onChange, lo
     setIsModalOpen(true);
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (file) {
-      onChange({
+      await onChange({
         top: croppedAreadPixels.y,
         left: croppedAreadPixels.x,
         height: croppedAreadPixels.height,
         width: croppedAreadPixels.width,
         file,
       });
+      setIsModalOpen(false);
     }
   };
 

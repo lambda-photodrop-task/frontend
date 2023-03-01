@@ -1,5 +1,5 @@
 import { Photographer } from '../types/photographer';
-import { Album, Photo, UploadSelfie, User } from '../types/user';
+import { Album, NotificationSettings, Photo, UpdateUser, UploadSelfie, User } from '../types/user';
 
 export interface AuthStore {
   isLoggedIn: boolean;
@@ -35,15 +35,23 @@ export interface UserStore {
     data: Photo[];
     status: Status;
   };
+  notificationPreferences: NotificationSettings | null;
 
   selfieThumbnail: { src: string; file: File | null };
+  selfie: { src: string; file: File | null };
 
   getUser: () => Promise<void>;
+  updateUser: ({ name, email }: UpdateUser) => Promise<void>;
+
   getUserSelfieThumbnail: () => Promise<void>;
+  getUserSelfie: () => Promise<void>;
   uploadNewSelfie: ({ top, left, file }: UploadSelfie) => Promise<void>;
 
   getAlbums: () => Promise<void>;
   getPhotos: () => Promise<void>;
+
+  getUserPreferences: () => Promise<void>;
+  updatedUserPreferences: ({ sendEmail, sendText, isUnsubscribed }: NotificationSettings) => Promise<void>;
 }
 
 export interface PhotographerStore {

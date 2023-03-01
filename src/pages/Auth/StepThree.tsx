@@ -26,6 +26,7 @@ const AuthStepThree = () => {
   const handleSelfieUpload = async ({ top, left, file, height, width }: UploadSelfie) => {
     setIsLoading(true);
     await uploadNewSelfie({ top, left, file, height, width });
+    setIsLoading(false);
   };
 
   useEffect(() => {

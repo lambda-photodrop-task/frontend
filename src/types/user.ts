@@ -6,6 +6,17 @@ export interface UploadSelfie {
   file: File;
 }
 
+export interface UpdateUser {
+  name: string | null;
+  email: string | null;
+}
+
+export interface NotificationSettings {
+  isUnsubscribed: boolean;
+  sendEmail: boolean;
+  sendText: boolean;
+}
+
 export interface User {
   id: string;
   phone: string;

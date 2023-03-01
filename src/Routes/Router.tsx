@@ -8,9 +8,13 @@ import PhotographerMain from '../pages/Photographer/Main';
 import PrivacyPolicy from '../pages/PrivacyPolicy';
 import TermsOfUse from '../pages/TermsOfUse';
 import UserMain from '../pages/User/Main';
-import UserSettings from '../pages/User/Settings';
+import UserSettings from '../pages/User/Settings/UserSettings';
+import AccountSettings from '../pages/User/Settings/AccountSettings';
+import EmailSettings from '../pages/User/Settings/EmailSettings';
+import NameSettings from '../pages/User/Settings/NameSettings';
 import { useAuthStore } from '../store/authStore';
 import { useUserStore } from '../store/userStore';
+import NotificationsSettings from '../pages/User/Settings/NotificationsSettings';
 
 const Router = () => {
   const { isLoggedIn } = useAuthStore((state) => state);
@@ -41,6 +45,10 @@ const Router = () => {
         )}
 
         <Route path="/settings" element={<UserSettings />} />
+        <Route path="/settings/account" element={<AccountSettings />} />
+        <Route path="/settings/name" element={<NameSettings />} />
+        <Route path="/settings/email" element={<EmailSettings />} />
+        <Route path="/settings/notifications" element={<NotificationsSettings />} />
 
         <Route path="/photographer" element={<PhotographerMain />} />
 
