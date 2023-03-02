@@ -9,7 +9,8 @@ import {
   checkPhotographerAuthorization,
   resendConfirmationCode,
 } from '../api/auth';
-import { AuthStore } from './types';
+import { usePhotographerStore } from './photographerStore';
+import { AuthStore } from '../types/store';
 import { useUserStore } from './userStore';
 
 export const useAuthStore = create<AuthStore>()(
@@ -36,9 +37,10 @@ export const useAuthStore = create<AuthStore>()(
           await useUserStore.getState().getUser();
         } else if (data.userType === 'Photographer') {
           await checkPhotographerAuthorization();
+          await usePhotographerStore.getState().getPhotographer();
         }
 
-        set({ isLoggedIn: true, role: data.userType });
+        set({ isLoggedIn: true, isLoading: false, role: data.userType });
       },
       startUserAuth: async ({ phone }: { phone: string }) => {
         await initiateUserAuth({ phone });
@@ -74,6 +76,7 @@ export const useAuthStore = create<AuthStore>()(
         set({
           isLoggedIn: true,
           tokens: { accessToken, refreshToken: '' },
+          role: 'Photographer',
         });
       },
     }),

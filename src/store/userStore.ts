@@ -10,8 +10,7 @@ import {
   getNotificationsSettings,
   updateNotificationsSettings,
 } from '../api/user';
-import { useAuthStore } from './authStore';
-import { UserStore } from './types';
+import { UserStore } from '../types/store';
 
 export const useUserStore = create<UserStore>()((set, get) => ({
   user: null,
@@ -35,7 +34,6 @@ export const useUserStore = create<UserStore>()((set, get) => ({
     if (data.user.selfieId && !get().selfieThumbnail.src) {
       await get().getUserSelfieThumbnail();
     }
-    useAuthStore.setState({ isLoading: false });
   },
   updateUser: async ({ name, email }) => {
     await updateUser({ name, email });

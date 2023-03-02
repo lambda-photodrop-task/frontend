@@ -17,8 +17,10 @@ import { useUserStore } from '../store/userStore';
 import NotificationsSettings from '../pages/User/Settings/NotificationsSettings';
 
 const Router = () => {
-  const { isLoggedIn } = useAuthStore((state) => state);
+  const { isLoggedIn, role } = useAuthStore((state) => state);
   const { user } = useUserStore((state) => state);
+
+  console.log(role);
 
   let Router: ReactNode;
   if (!isLoggedIn) {
@@ -35,7 +37,7 @@ const Router = () => {
         <Route path="*" element={<Navigate to="/auth/step-one" replace />} />
       </Routes>
     );
-  } else {
+  } else if (role === 'User') {
     Router = (
       <Routes>
         {user?.selfieId ? (
@@ -50,8 +52,6 @@ const Router = () => {
         <Route path="/settings/email" element={<EmailSettings />} />
         <Route path="/settings/notifications" element={<NotificationsSettings />} />
 
-        <Route path="/photographer" element={<PhotographerMain />} />
-
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
 
@@ -60,6 +60,14 @@ const Router = () => {
         ) : (
           <Route path="*" element={<Navigate to="/auth/step-three" replace />} />
         )}
+      </Routes>
+    );
+  } else if (role === 'Photographer') {
+    Router = (
+      <Routes>
+        <Route path="/photographer" element={<PhotographerMain />} />
+
+        <Route path="*" element={<Navigate to="/photographer" replace />} />
       </Routes>
     );
   }

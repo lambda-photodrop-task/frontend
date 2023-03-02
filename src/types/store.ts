@@ -1,5 +1,5 @@
-import { Photographer } from '../types/photographer';
-import { Album, NotificationSettings, Photo, UpdateUser, UploadSelfie, User } from '../types/user';
+import { CreateAlbum, Photographer } from './photographer';
+import { Album, NotificationSettings, Photo, UpdateUser, UploadSelfie, User } from './user';
 
 export interface AuthStore {
   isLoggedIn: boolean;
@@ -8,10 +8,7 @@ export interface AuthStore {
   role: UserType;
 
   phone: string;
-  tokens: {
-    accessToken: string;
-    refreshToken: string;
-  };
+  tokens: { accessToken: string; refreshToken: string };
 
   init: () => Promise<void>;
   startUserAuth: ({ phone }: { phone: string }) => Promise<void>;
@@ -27,14 +24,9 @@ export type Status = 'Pending' | 'Loading' | 'Fullfilled';
 
 export interface UserStore {
   user: User | null;
-  albums: {
-    data: Album[];
-    status: Status;
-  };
-  photos: {
-    data: Photo[];
-    status: Status;
-  };
+  albums: { data: Album[]; status: Status };
+  photos: { data: Photo[]; status: Status };
+
   notificationPreferences: NotificationSettings | null;
 
   selfieThumbnail: { src: string; file: File | null };
@@ -56,4 +48,10 @@ export interface UserStore {
 
 export interface PhotographerStore {
   photographer: Photographer | null;
+  albums: { data: Album[]; status: Status };
+
+  getPhotographer: () => Promise<void>;
+
+  getAlbums: () => Promise<void>;
+  createAlbum: ({ name, location, price }: CreateAlbum) => Promise<void>;
 }
