@@ -1,4 +1,4 @@
-import { UserType } from '../store/types';
+import { UserType } from '../types/store';
 import { FinishUserAuthResponse, PhotographerAuthResponse } from '../types/auth';
 import { instance } from './instance';
 

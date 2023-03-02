@@ -17,27 +17,25 @@ import { useUserStore } from '../store/userStore';
 import NotificationsSettings from '../pages/User/Settings/NotificationsSettings';
 
 const Router = () => {
-  const { isLoggedIn, role } = useAuthStore((state) => state);
+  const { role } = useAuthStore((state) => state);
   const { user } = useUserStore((state) => state);
 
-  console.log(role);
-
   let Router: ReactNode;
-  if (!isLoggedIn) {
-    Router = (
-      <Routes>
-        <Route path="/auth/photographer" element={<AuthPhotographer />} />
+  Router = (
+    <Routes>
+      <Route path="/auth/photographer" element={<AuthPhotographer />} />
 
-        <Route path="/auth/step-one" element={<AuthStepOne />} />
-        <Route path="/auth/step-two" element={<AuthStepTwo />} />
+      <Route path="/auth/step-one" element={<AuthStepOne />} />
+      <Route path="/auth/step-two" element={<AuthStepTwo />} />
 
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-of-use" element={<TermsOfUse />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms-of-use" element={<TermsOfUse />} />
 
-        <Route path="*" element={<Navigate to="/auth/step-one" replace />} />
-      </Routes>
-    );
-  } else if (role === 'User') {
+      <Route path="*" element={<Navigate to="/auth/step-one" replace />} />
+    </Routes>
+  );
+
+  if (role === 'User') {
     Router = (
       <Routes>
         {user?.selfieId ? (
