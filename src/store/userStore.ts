@@ -9,6 +9,7 @@ import {
   uploadNewSelfie,
   getNotificationsSettings,
   updateNotificationsSettings,
+  getPhotoThumbnail,
 } from '../api/user';
 import { UserStore } from '../types/store';
 
@@ -67,14 +68,42 @@ export const useUserStore = create<UserStore>()((set, get) => ({
 
     const { data } = await getAlbums();
 
-    set({ albums: { data: data.albums, status: 'Fullfilled' } });
+    let { albums } = data;
+
+    if (albums.length) {
+      albums = await Promise.all(
+        data.albums.map(async (album) => {
+          const { data } = await getPhotoThumbnail(album.thumbnail);
+
+          const photoSrc = URL.createObjectURL(data);
+
+          return { ...album, src: photoSrc };
+        })
+      );
+    }
+
+    set({ albums: { data: albums, status: 'Fullfilled' } });
   },
   getPhotos: async () => {
     set({ photos: { data: get().photos.data, status: 'Loading' } });
 
     const { data } = await getPhotos();
 
-    set({ photos: { data: data.photos, status: 'Fullfilled' } });
+    let { photos } = data;
+
+    if (photos.length) {
+      photos = await Promise.all(
+        data.photos.map(async (photo) => {
+          const { data } = await getPhotoThumbnail(photo.id);
+
+          const photoSrc = URL.createObjectURL(data);
+
+          return { ...photo, src: photoSrc };
+        })
+      );
+    }
+
+    set({ photos: { data: photos, status: 'Fullfilled' } });
   },
   getUserPreferences: async () => {
     const { data } = await getNotificationsSettings();

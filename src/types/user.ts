@@ -33,6 +33,7 @@ export interface Album {
   price: string;
   thumbnail: string;
   isPurchased: boolean;
+  src?: string;
 }
 
 export interface Photo {

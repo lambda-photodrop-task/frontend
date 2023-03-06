@@ -44,3 +44,6 @@ export const getUserSelfie = async () => instance.get<Blob>('/user/selfie', { re
 export const getAlbums = async () => instance.get<{ albums: Album[] }>('/user/albums');
 
 export const getPhotos = async () => instance.get<{ photos: Photo[] }>('/user/photos');
+
+export const getPhotoThumbnail = async (photoId: string) =>
+  instance.get<Blob>(`/user/photo/${photoId}/thumb`, { responseType: 'blob' });

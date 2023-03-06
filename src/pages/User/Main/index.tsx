@@ -48,6 +48,13 @@ const UserMain = () => {
             <div css={css.itemsContainer(true)}>
               {albums.status === 'Loading' &&
                 Array.from({ length: 3 }, (_, i) => <Skeleton key={`album-skeleton-${i}`} styles={css.album} />)}
+
+              {albums.status === 'Fullfilled' &&
+                albums.data.map((album) => (
+                  <div css={css.artistPrint(album.src!, album.name)} key={`album-${album.id}`}>
+                    <p>{album.name}</p>
+                  </div>
+                ))}
             </div>
           </div>
           <div css={css.photosSection}>
@@ -55,7 +62,15 @@ const UserMain = () => {
             <div css={css.itemsContainer}>
               {photos.status === 'Loading' &&
                 Array.from({ length: 2 }, (_, i) => <Skeleton key={`album-skeleton-${i}`} styles={css.photo} />)}
+
+              {photos.status === 'Fullfilled' &&
+                photos.data.map((photo) => <div css={css.photoItem(photo.src!)} key={`photo-${photo.id}`} />)}
             </div>
+          </div>
+          <div css={css.buttonContainer}>
+            <button css={css.button} type="submit">
+              Unlock your photos
+            </button>
           </div>
         </>
       )}

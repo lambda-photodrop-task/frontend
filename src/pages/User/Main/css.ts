@@ -160,12 +160,75 @@ export const printsContent: CSSWithTheme = () => ({
   },
 });
 
-export const artistPrint: CSSWithTheme = (url: string) => ({
-  backgroundImage: `url('${url}')`,
+export const artistPrint = (url: string, name?: string) => ({
+  background: name ? `linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,0.7)), url('${url}')` : `url('${url}')`,
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   width: '200px',
   height: '255px',
   borderRadius: '20px',
   cursor: 'pointer',
+
+  display: 'flex',
+  alignItems: 'end',
+  justifyContent: 'center',
+
+  p: {
+    marginBottom: '20px',
+    color: '#FFFFFF',
+    fontSize: '14px',
+    lineHeight: '9px',
+  },
+});
+
+export const photoItem = (src: string) => ({
+  width: src.length ? '300px' : 'auto',
+  height: '300px',
+  backgroundImage: src.length ? `url(${src})` : 'none',
+  cursor: 'pointer',
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundBlendMode: 'multiply',
+
+  '@media (max-width: 768px)': {
+    width: '125px',
+    height: '125px',
+  },
+});
+
+export const buttonContainer: CSSWithTheme = () => ({
+  margin: '100px 0',
+  display: 'flex',
+  justifyContent: 'center',
+});
+
+export const button: CSSWithTheme = () => ({
+  width: '300px',
+  height: '50px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginTop: '20px',
+
+  color: '#FFFFFF',
+  fontFamily: 'Futura PT',
+  fontWeight: 500,
+  fontSize: '22px',
+  lineHeight: '22px',
+
+  background: 'var(--cta-button-color)',
+  borderRadius: '50px',
+  cursor: 'pointer',
+  border: 'none',
+  boxSizing: 'boder-box',
+
+  ':disabled': {
+    background: 'var(--cta-button-disabled-color)',
+    cursor: 'not-allowed',
+  },
+
+  '@media (max-width: 425px)': {
+    width: '100%',
+    fontSize: '18px',
+  },
 });

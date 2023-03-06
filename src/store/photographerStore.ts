@@ -41,15 +41,19 @@ export const usePhotographerStore = create<PhotographerStore>()((set, get) => ({
 
     const { data } = await getPhotographerPhotosInAlbum(albumId);
 
-    const photos = await Promise.all(
-      data.photos.map(async (photo) => {
-        const { data } = await getPhotoThumbnail(photo.id);
+    let { photos } = data;
 
-        const photoSrc = URL.createObjectURL(data);
+    if (photos.length) {
+      photos = await Promise.all(
+        data.photos.map(async (photo) => {
+          const { data } = await getPhotoThumbnail(photo.id);
 
-        return { ...photo, src: photoSrc };
-      })
-    );
+          const photoSrc = URL.createObjectURL(data);
+
+          return { ...photo, src: photoSrc };
+        })
+      );
+    }
 
     set({ photos: { data: photos, status: 'Fullfilled' } });
   },
