@@ -12,7 +12,7 @@ export const settingsLinks = [
   {
     name: 'Notification settings',
     description: 'How should we contact you?',
-    link: '/settings/notification',
+    link: '/settings/notifications',
   },
 ];
 
@@ -28,5 +28,25 @@ export const backButtonRoutes = [
   {
     path: '/settings',
     link: '/user',
+  },
+  {
+    path: '/settings/name',
+    link: '/settings',
+  },
+  {
+    path: '/settings/account',
+    link: '/settings',
+  },
+  {
+    path: '/settings/email',
+    link: '/settings/account',
+  },
+  {
+    path: '/settings/notifications',
+    link: '/settings',
+  },
+  {
+    path: '/album/*',
+    link: '/photographer',
   },
 ];

@@ -32,7 +32,7 @@ const AuthPhotographer = () => {
     validateOnChange: true,
     onSubmit: async ({ login, password }) => {
       await photographerAuth({ login, password });
-      navigate('/photographer/dashboard');
+      navigate('/photographer');
     },
   });
 

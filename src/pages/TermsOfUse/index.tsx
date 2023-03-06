@@ -45,12 +45,12 @@ const TermsOfUse = () => (
       <br />
       <b>Changes to Terms of Service</b>
       <br />
-      We may modify the Terms at any time, at our sole discretion. If we do so, we`&apos;`ll let you know either by
-      posting the modified Terms on the Site or through other communications. It`&apos;`s important that you review the
+      We may modify the Terms at any time, at our sole discretion. If we do so, we&apos;ll let you know either by
+      posting the modified Terms on the Site or through other communications. It&apos;s important that you review the
       Terms whenever we modify them because if you continue to use the Service after we have posted modified Terms on
-      the Site, you are indicating to us that you agree to be bound by the modified Terms. If you don`&apos;`t agree to
-      be bound by the modified Terms, then you may not use the Service anymore. Because our Service is evolving over
-      time we may change or discontinue all or any part of the Service, at any time and without notice, at our sole
+      the Site, you are indicating to us that you agree to be bound by the modified Terms. If you don&apos;t agree to be
+      bound by the modified Terms, then you may not use the Service anymore. Because our Service is evolving over time
+      we may change or discontinue all or any part of the Service, at any time and without notice, at our sole
       discretion.
       <br />
       <br />
@@ -65,12 +65,12 @@ const TermsOfUse = () => (
       <br />
       <b>Registration and Your Information</b>
       <br />
-      If you want to use certain features of the Service you`&apos;`ll have to create an account <b>(“Account”)</b>.
-      It`&apos;`s important that you provide us with accurate, complete and up-to-date information for your Account and
-      you agree to update such information, as needed, to keep it accurate, complete and up-to-date. If you
-      don`&apos;`t, we might have to suspend or terminate your Account. You agree that you won`&apos;`t disclose your
-      Account password to anyone and you`&apos;`ll notify us immediately of any unauthorized use of your Account.
-      You`&apos;`re responsible for all activities that occur under your Account, whether or not you know about them.
+      If you want to use certain features of the Service you&apos;ll have to create an account <b>(“Account”)</b>.
+      It&apos;s important that you provide us with accurate, complete and up-to-date information for your Account and
+      you agree to update such information, as needed, to keep it accurate, complete and up-to-date. If you don&apos;t,
+      we might have to suspend or terminate your Account. You agree that you won&apos;t disclose your Account password
+      to anyone and you&apos;ll notify us immediately of any unauthorized use of your Account. You&apos;re responsible
+      for all activities that occur under your Account, whether or not you know about them.
       <br />
       <br />
       <b>Twilio Short & Long Code Terms of Service</b>
@@ -166,8 +166,8 @@ const TermsOfUse = () => (
       or you have all rights that are necessary to grant us the license rights in your User Content under these Terms.
       You also represent and warrant that neither your User Content, nor your use and provision of your User Content to
       be made available through the Service, nor any use of your User Content by PhotoDrop on or through the Service
-      will infringe, misappropriate or violate a third party`&apos;`s intellectual property rights, or rights of
-      publicity or privacy, or result in the violation of any applicable law or regulation.
+      will infringe, misappropriate or violate a third party&apos;s intellectual property rights, or rights of publicity
+      or privacy, or result in the violation of any applicable law or regulation.
       <br />
       <br />
       You can remove your User Content by specifically deleting it. However, in certain instances, some of your User
@@ -196,7 +196,7 @@ const TermsOfUse = () => (
       These Terms of Use apply to your access to and use of the Site, the Professional Services (as defined below) and
       any other apps and online services provided by PhotoDrop (the “Services”). These Terms of Use also apply to your
       use of the Services to purchase photographic prints or other related merchandise and products (“Products”) through
-      PhotoDrop`&apos;`s approved third party vendors and retailers (“PhotoDrop Vendors”).
+      PhotoDrop&apos;s approved third party vendors and retailers (“PhotoDrop Vendors”).
       <br />
       <br />
       Your use of the Services and your purchase of Products is expressly conditioned upon your agreement to these Terms
@@ -275,7 +275,7 @@ const TermsOfUse = () => (
       <ul>
         <li>
           Post, upload, publish, submit or transmit any Content that: (a) infringes, misappropriates or violates a third
-          party`&apos;`s patent, copyright, trademark, trade secret, moral rights or other intellectual property rights,
+          party&apos;s patent, copyright, trademark, trade secret, moral rights or other intellectual property rights,
           or rights of publicity or privacy; (b) violates, or encourages any conduct that would violate, any applicable
           law or regulation or would give rise to civil liability; (c) is fraudulent, false, misleading or deceptive;
           (d) is defamatory, obscene, pornographic, vulgar or offensive; (e) promotes discrimination, bigotry, racism,
@@ -284,13 +284,13 @@ const TermsOfUse = () => (
           substances.
         </li>
         <li>
-          Use, display, mirror or frame the Service or any individual element within the Service, PhotoDrop`&apos;`s
-          name, any PhotoDrop trademark, logo or other proprietary information, or the layout and design of any page or
-          form contained on a page, without PhotoDrop`&apos;`s express written consent;
+          Use, display, mirror or frame the Service or any individual element within the Service, PhotoDrop&apos;s name,
+          any PhotoDrop trademark, logo or other proprietary information, or the layout and design of any page or form
+          contained on a page, without PhotoDrop&apos;s express written consent;
         </li>
         <li>
-          Access, tamper with, or use non-public areas of the Service, PhotoDrop`&apos;`s computer systems, or the
-          technical delivery systems of PhotoDrop`&apos;`s providers;
+          Access, tamper with, or use non-public areas of the Service, PhotoDrop&apos;s computer systems, or the
+          technical delivery systems of PhotoDrop&apos;s providers;
         </li>
         <li>
           Attempt to probe, scan or test the vulnerability of any PhotoDrop system or network or breach any security or
@@ -298,7 +298,7 @@ const TermsOfUse = () => (
         </li>
         <li>
           Avoid, bypass, remove, deactivate, impair, descramble or otherwise circumvent any technological measure
-          implemented by PhotoDrop or any of PhotoDrop`&apos;`s providers or any other third party (including another
+          implemented by PhotoDrop or any of PhotoDrop&apos;s providers or any other third party (including another
           user) to protect the Service or Content;
         </li>
         <li>
@@ -345,7 +345,7 @@ const TermsOfUse = () => (
         <li>Encourage or enable any other individual to do any of the foregoing.</li>
       </ul>
       <br />
-      Although we`&apos;`re not obligated to monitor access to or use of the Service or Content or to review or edit any
+      Although we&apos;re not obligated to monitor access to or use of the Service or Content or to review or edit any
       Content, we have the right to do so for the purpose of operating the Service, to ensure compliance with these
       Terms, and to comply with applicable law or other legal requirements. We reserve the right, but are not obligated,
       to remove or disable access to any Content, at any time and without notice, including, but not limited to, if we,
@@ -356,10 +356,9 @@ const TermsOfUse = () => (
       <br />
       <b>DMCA/Copyright Policy</b>
       <br />
-      PhotoDrop respects copyright law and expects its users to do the same. It is PhotoDrop`&apos;`s policy to
-      terminate in appropriate circumstances Account holders who repeatedly infringe or are believed to be repeatedly
-      infringing the rights of copyright holders. Please see PhotoDrop`&apos;`s Copyright Policy for further
-      information.
+      PhotoDrop respects copyright law and expects its users to do the same. It is PhotoDrop&apos;s policy to terminate
+      in appropriate circumstances Account holders who repeatedly infringe or are believed to be repeatedly infringing
+      the rights of copyright holders. Please see PhotoDrop&apos;s Copyright Policy for further information.
       <br />
       <br />
       <b>Termination</b>
@@ -367,7 +366,7 @@ const TermsOfUse = () => (
       We may terminate your access to and use of the Service, at our sole discretion, at any time and without notice to
       you. You may cancel your Account at any time by sending an email to us at feedback@photoprop.me. Upon any
       termination, discontinuation or cancellation of the Service or your Account, the following provisions will
-      survive: Feedback, Rights in User Content Granted by You, General Prohibitions and PhotoDrop`&apos;`s Enforcement
+      survive: Feedback, Rights in User Content Granted by You, General Prohibitions and PhotoDrop&apos;s Enforcement
       Rights, Termination, Warranty Disclaimers, Indemnity, Limitation of Liability, and Dispute Resolution
       <br />
       <br />
@@ -402,9 +401,8 @@ const TermsOfUse = () => (
       YOU.
       <br />
       <br />
-      IN NO EVENT WILL PHOTODROP`&apos;`S TOTAL LIABILITY ARISING OUT OF OR IN CONNECTION WITH THESE TERMS OR FROM THE
-      USE OF OR INABILITY TO USE THE SERVICE OR CONTENT EXCEED THE AMOUNTS YOU HAVE PAID TO PHOTODROP FOR USE OF THE
-      SERVICE
+      IN NO EVENT WILL PHOTODROP&apos;S TOTAL LIABILITY ARISING OUT OF OR IN CONNECTION WITH THESE TERMS OR FROM THE USE
+      OF OR INABILITY TO USE THE SERVICE OR CONTENT EXCEED THE AMOUNTS YOU HAVE PAID TO PHOTODROP FOR USE OF THE SERVICE
       <br />
       <br />
       THE EXCLUSIONS AND LIMITATIONS OF DAMAGES SET FORTH ABOVE ARE FUNDAMENTAL ELEMENTS OF THE BASIS OF THE BARGAIN
@@ -422,7 +420,7 @@ const TermsOfUse = () => (
       <br />
       <br />
       <b>Mobile and Other Devices</b>
-      PhotoDrop currently provides our App and Service for free, but please be aware that your carrier`&apos;`s normal
+      PhotoDrop currently provides our App and Service for free, but please be aware that your carrier&apos;s normal
       rates and fees, such as text messaging and data charges, will still apply. In the event you change or deactivate
       your mobile telephone number, you will update your Account information on PhotoDrop within 48 hours to ensure that
       your messages are not sent to the person who acquires your old number.
@@ -445,11 +443,11 @@ const TermsOfUse = () => (
       (collectively, “<b>Disputes</b>“) will be settled by binding arbitration, except that each party retains the
       right: (a) to bring an individual action in small claims court and (b) to seek injunctive or other equitable
       relief in a court of competent jurisdiction to prevent the actual or threatened infringement, misappropriation or
-      violation of a party`&apos;`s copyrights, trademarks, trade secrets, patents or other intellectual property rights
+      violation of a party&apos;s copyrights, trademarks, trade secrets, patents or other intellectual property rights
       (the action described in the foregoing clause (b), an “<b>IP Protection Action</b>“). Without limiting the
       preceding sentence, you will also have the right to litigate any other Dispute if you provide PhotoDrop with
       written notice of your desire to do so by email at <b>feedback@photodrop.me</b> within thirty (30) days following
-      the date you first accept these Terms (such notice, an “<b>Arbitration Opt-out Notice</b>“). If you don`&apos;`t
+      the date you first accept these Terms (such notice, an “<b>Arbitration Opt-out Notice</b>“). If you don&apos;t
       provide PhotoDrop with an Arbitration Opt-out Notice within the thirty (30) day period, you will be deemed to have
       knowingly and intentionally waived your right to litigate any Dispute except as expressly set forth in clauses (a)
       and (b) above. The exclusive jurisdiction and venue of any IP Protection Action or, if you timely provide
@@ -462,7 +460,7 @@ const TermsOfUse = () => (
         proceeding
       </b>
       . Further, unless both you and PhotoDrop otherwise agree in writing, the arbitrator may not consolidate more than
-      one person`&apos;`s claims, and may not otherwise preside over any form of any class, representative, or private
+      one person&apos;s claims, and may not otherwise preside over any form of any class, representative, or private
       attorney general proceeding. In addition, the arbitrator may award declaratory or injunctive relief only in favor
       of the individual party seeking relief and cannot award relief that would affect other users. If this specific
       limitation on class, representative, private attorney general, or non-individualized declaratory and injunctive
@@ -483,7 +481,7 @@ const TermsOfUse = () => (
       <br />A party who desires to initiate arbitration must provide the other party with a written Demand for
       Arbitration as specified in the AAA Rules. (The AAA provides a general <b>Demand for Arbitration</b> and a
       separate <b>Demand for Arbitration for California residents</b>) The arbitrator will be either a retired judge or
-      an attorney licensed to practice law and will be selected by the parties from the AAA`&apos;`s roster of
+      an attorney licensed to practice law and will be selected by the parties from the AAA&apos;s roster of
       arbitrators. If the parties are unable to agree upon an arbitrator within seven (7) days of delivery of the Demand
       for Arbitration, then the AAA will appoint the arbitrator in accordance with the AAA Rules. The arbitrator will
       decide all issues, except that issues regarding the arbitrability of claims, including disputes over the
@@ -501,18 +499,18 @@ const TermsOfUse = () => (
       by the parties, consistent with the expedited nature of the arbitration.
       <br />
       <br />
-      <b>Arbitrator`&apos;`s Decision</b>
+      <b>Arbitrator&apos;s Decision</b>
       <br />
-      The arbitrator will render an award within the time frame specified in the AAA Rules. The arbitrator`&apos;`s
+      The arbitrator will render an award within the time frame specified in the AAA Rules. The arbitrator&apos;s
       decision will include the essential findings and conclusions upon which the arbitrator based the award. Judgment
-      on the arbitration award may be entered in any court having jurisdiction thereof. The arbitrator`&apos;`s award of
+      on the arbitration award may be entered in any court having jurisdiction thereof. The arbitrator&apos;s award of
       damages must be consistent with the terms of the “Limitation of Liability” section above as to the types and
       amounts of damages for which a party may be held liable. If you prevail in arbitration you will be entitled to an
-      award of attorneys`&apos;` fees and expenses, to the extent provided under applicable law. PhotoDrop will not
-      seek, and hereby waives all rights it may have under applicable law to recover, attorneys`&apos;` fees and
-      expenses if it prevails in arbitration, unless the arbitrator determines that either the substance of your claim
-      or the relief sought in your Demand for Arbitration is frivolous or was brought for an improper purpose (as
-      measured by the standards set forth in Federal Rule of Civil Procedure 11(b)).
+      award of attorneys&apos; fees and expenses, to the extent provided under applicable law. PhotoDrop will not seek,
+      and hereby waives all rights it may have under applicable law to recover, attorneys&apos; fees and expenses if it
+      prevails in arbitration, unless the arbitrator determines that either the substance of your claim or the relief
+      sought in your Demand for Arbitration is frivolous or was brought for an improper purpose (as measured by the
+      standards set forth in Federal Rule of Civil Procedure 11(b)).
       <br />
       <br />
       <b>Fees</b>
@@ -530,7 +528,7 @@ const TermsOfUse = () => (
       section after the date you first accepted these Terms (or accepted any subsequent changes to these Terms), you may
       reject any such change by sending us written notice (including by email to feedback@photodrop.me) within 30 days
       of the date such change became effective, as indicated in the “Last Updated” date above or in the date of
-      PhotoDrop`&apos;`s email to you notifying you of such change. By rejecting any change, you are agreeing that you
+      PhotoDrop&apos;s email to you notifying you of such change. By rejecting any change, you are agreeing that you
       will arbitrate any Dispute between you and PhotoDrop in accordance with the provisions of this “Dispute
       Resolution” section as of the date you first accepted these Terms (or accepted any subsequent changes to these
       Terms).
@@ -545,7 +543,7 @@ const TermsOfUse = () => (
       above or by court of competent jurisdiction, but only if you timely opt out of arbitration by sending us an
       Arbitration Opt-out Notice in accordance with the terms set forth above), that provision will be enforced to the
       maximum extent permissible and the other provisions of these Terms will remain in full force and effect. You may
-      not assign or transfer these Terms, by operation of law or otherwise, without PhotoDrop`&apos;`s prior written
+      not assign or transfer these Terms, by operation of law or otherwise, without PhotoDrop&apos;s prior written
       consent. Any attempt by you to assign or transfer these Terms, without such consent, will be null. PhotoDrop may
       freely assign or transfer these Terms without restriction. Subject to the foregoing, these Terms will bind and
       inure to the benefit of the parties, their successors and permitted assigns.
@@ -556,11 +554,11 @@ const TermsOfUse = () => (
       e-mail, the date of receipt will be deemed the date on which such notice is transmitted.
       <br />
       <br />
-      PhotoDrop`&apos;`s failure to enforce any right or provision of these Terms will not be considered a waiver of
-      such right or provision. The waiver of any such right or provision will be effective only if in writing and signed
-      by a duly authorized representative of PhotoDrop. Except as expressly set forth in these Terms, the exercise by
-      either party of any of its remedies under these Terms will be without prejudice to its other remedies under these
-      Terms or otherwise.
+      PhotoDrop&apos;s failure to enforce any right or provision of these Terms will not be considered a waiver of such
+      right or provision. The waiver of any such right or provision will be effective only if in writing and signed by a
+      duly authorized representative of PhotoDrop. Except as expressly set forth in these Terms, the exercise by either
+      party of any of its remedies under these Terms will be without prejudice to its other remedies under these Terms
+      or otherwise.
       <br />
       <br />
       <b>A. GENERAL TERMS</b>
@@ -568,9 +566,9 @@ const TermsOfUse = () => (
       <br />
       <b>Professional Services Terms</b>
       <br />
-      PhotoDrop`&apos;`s professional services (“Professional Services”) provide an online platform that enables our
-      users to upload and share photographs (“Photos”) using the Services. Photos may collectively be referred to herein
-      as “Media”. By subscribing to or using any Professional Services, you agree to be bound by and accept the
+      PhotoDrop&apos;s professional services (“Professional Services”) provide an online platform that enables our users
+      to upload and share photographs (“Photos”) using the Services. Photos may collectively be referred to herein as
+      “Media”. By subscribing to or using any Professional Services, you agree to be bound by and accept the
       Professional Services Terms set forth in Section B below.
       <br />
       <br />
@@ -645,7 +643,7 @@ const TermsOfUse = () => (
       You may create a text hyperlink to the Site, provided such link does not portray PhotoDrop or any of its Products
       or Services in a false, misleading, derogatory or otherwise defamatory manner. This limited right may be revoked
       by PhotoDrop at any time. You may not frame the Site or utilize framing techniques to enclose the Site, PhotoDrop
-      Materials, WaldPhotoDropo Marks or other proprietary information without PhotoDrop`&apos;`s express prior written
+      Materials, WaldPhotoDropo Marks or other proprietary information without PhotoDrop&apos;s express prior written
       consent.
       <br />
       As a part of the Services, we may provide you with access to and use of certain personalized pages and
@@ -710,7 +708,7 @@ const TermsOfUse = () => (
       or otherwise submitted through the Services; (ii) edit any User Content posted on the Services; and/or (iii)
       remove any User Content from the Services for any reason, at any time, without prior notice, at our sole
       discretion. PhotoDrop will have no liability or responsibility to users of the PhotoDrop Services or any other
-      person or entity for performance or nonperformance of such activities. PhotoDrop`&apos;`s enforcement of the
+      person or entity for performance or nonperformance of such activities. PhotoDrop&apos;s enforcement of the
       acceptable use provisions set forth in these Terms of Use with respect to User Content in some instances does not
       constitute a waiver of our right to enforce such provisions in
       <br />
@@ -794,8 +792,8 @@ const TermsOfUse = () => (
       <br />
       These Terms of Use are binding upon and inure to the benefit of the parties hereto and their permitted successors
       and assigns. Notwithstanding the foregoing, you may not assign your rights under these Terms of Use without
-      PhotoDrop`&apos;`s prior written consent. PhotoDrop will be permitted to assign its rights under these Terms of
-      Use at its sole discretion.
+      PhotoDrop&apos;s prior written consent. PhotoDrop will be permitted to assign its rights under these Terms of Use
+      at its sole discretion.
       <br />
       <br />
       <b>International Users</b>
@@ -811,7 +809,7 @@ const TermsOfUse = () => (
       If any provision of these Terms of Use is held invalid or unenforceable by any court of competent jurisdiction,
       the other provisions of these Terms of Use will remain in full force and effect, and, if legally permitted, such
       offending provision will be replaced with an enforceable provision that as nearly as possible effects the
-      parties`&apos;` intent.
+      parties&apos; intent.
       <br />
       <br />
       <b>Survival</b>
@@ -877,7 +875,7 @@ const TermsOfUse = () => (
       not terminated until you receive confirmation of such termination from PhotoDrop.
       <br />
       <br />
-      PhotoDrop may terminate a Subscription or account, or any user`&apos;`s access to and use of the Professional
+      PhotoDrop may terminate a Subscription or account, or any user&apos;s access to and use of the Professional
       Services, at any time for any reason at its sole discretion, which such termination will be effective immediately.
       If you violate the Terms of Use, PhotoDrop at its sole discretion may (i) require you to remedy any violation
       thereof and/or (ii) take any other actions that PhotoDrop deems appropriate to enforce its rights and pursue
@@ -916,7 +914,7 @@ const TermsOfUse = () => (
       <br />
       <br />
       Please note that when User Content or other files are deleted (or your account is canceled), those files will be
-      deleted as soon as reasonable pursuant to PhotoDrop`&apos;`s data destruction policies and cannot be recovered by
+      deleted as soon as reasonable pursuant to PhotoDrop&apos;s data destruction policies and cannot be recovered by
       PhotoDrop or any third party vendor following deletion (including Amazon S3).
       <br />
       <br />
@@ -927,7 +925,7 @@ const TermsOfUse = () => (
       (collectively the “User Information”), you agree that you may not use any such User Information in any manner
       except as may be specifically authorized by PhotoDrop to carry out the purpose for which such User Information was
       provided. Without limiting the foregoing, you may not share such User Information with any third parties. Further,
-      you agree not to use such User Information in any manner that would be in violation of PhotoDrop`&apos;`s Privacy
+      you agree not to use such User Information in any manner that would be in violation of PhotoDrop&apos;s Privacy
       Policy. In no event will PhotoDrop be obligated to provide you with any such User Information. You agree that this
       provision will apply both during and after the term of your Subscription.
       <br />
@@ -954,7 +952,7 @@ const TermsOfUse = () => (
       PhotoDrop facilitates your purchase of Photos or Products through the PhotoDrop Services through its relationships
       with the PhotoDrop Vendors. If you purchase Photos or other Products through the PhotoDrop Services, you
       acknowledge that the printing of any Photos or creation of other physical medium Products is performed by such
-      PhotoDrop Vendors and PhotoDrop`&apos;`s role is to assist, facilitate and support such order process pursuant to
+      PhotoDrop Vendors and PhotoDrop&apos;s role is to assist, facilitate and support such order process pursuant to
       these Terms of Sale.
       <br />
       <br />
@@ -963,9 +961,9 @@ const TermsOfUse = () => (
       In order to purchase Products through the PhotoDrop Services, you are required to provide valid Payment
       Information as required by PhotoDrop. PhotoDrop may terminate your order for Products and take such other action
       as appropriate if we are unable to process your Payment Information and you do not provide an alternative form of
-      payment upon PhotoDrop`&apos;`s request. You agree to reimburse PhotoDrop for any and all costs incurred in
-      collecting amounts owed by you to PhotoDrop or a PhotoDrop Vendor, including, without limitation,
-      attorneys`&apos;` fees and costs of collection agencies.
+      payment upon PhotoDrop&apos;s request. You agree to reimburse PhotoDrop for any and all costs incurred in
+      collecting amounts owed by you to PhotoDrop or a PhotoDrop Vendor, including, without limitation, attorneys&apos;
+      fees and costs of collection agencies.
       <br />
       <br />
       You are responsible for any taxes that you are obligated to pay or that PhotoDrop may collect from you in
@@ -979,7 +977,7 @@ const TermsOfUse = () => (
       <b>Product Downloads; Shipping Terms and Policies</b>
       <br />
       If you purchase a Photo download, such download will be made available to you through the Services upon
-      PhotoDrop`&apos;`s receipt of your valid Payment Information.
+      PhotoDrop&apos;s receipt of your valid Payment Information.
       <br />
       <br />
       If you purchase Photo prints or other physical medium Products (i.e., photo books or other photo merchandise),
@@ -1036,7 +1034,7 @@ const TermsOfUse = () => (
       <b>Disclaimer of Warranties</b>
       <br />
       THE FOREGOING RIGHT TO RETURN ANY ORDER WITHIN THIRTY (30) DAYS IS YOUR SOLE AND EXCLUSIVE REMEDY, AND
-      PHOTODROP`&apos;`S SOLE AND EXCLUSIVE LIABILITY, WITH RESPECT TO THE PURCHASE OF ANY PRODUCTS USING THE SERVICES,
+      PHOTODROP&apos;S SOLE AND EXCLUSIVE LIABILITY, WITH RESPECT TO THE PURCHASE OF ANY PRODUCTS USING THE SERVICES,
       AND PHOTODROP EXPRESSLY DISCLAIMS AND EXCLUDES ALL WARRANTIES, EXPRESS OR IMPLIED, REGARDING THE PURCHASE OF ANY
       PRODUCTS.
       <br />
@@ -1050,8 +1048,8 @@ const TermsOfUse = () => (
       <br />
       These License Agreement terms apply to Content Owners who have registered for a Professional Plan granting such
       Content Owner the ability to license Media through the use of the Services. Certain PhotoDrop Pro users may be
-      entitled to license digital versions of such user`&apos;`s Photos to other PhotoDrop users for an applicable
-      license fee under the terms of such user`&apos;`s Professional Plan.
+      entitled to license digital versions of such user&apos;s Photos to other PhotoDrop users for an applicable license
+      fee under the terms of such user&apos;s Professional Plan.
       <br />
       <br />
       <b>Rights Granted by Content Owner</b>
@@ -1066,13 +1064,13 @@ const TermsOfUse = () => (
       <br />
       Content Owner is responsible for all Photos posted to PhotoDrop through the Services, including without limitation
       the designation of Photo license types (either personal or commercial) and the setting of license fees (if
-      applicable) through the tools available in Content Owner`&apos;`s Account Settings.
+      applicable) through the tools available in Content Owner&apos;s Account Settings.
       <br />
       <br />
       <b>Media Submission and Licensing</b>
       <br />
       As set forth in the Terms of Use, Photos submitted to PhotoDrop through the Services may be rejected or removed
-      from the Services at any time for any reason or for no reason at PhotoDrop`&apos;`s sole discretion.
+      from the Services at any time for any reason or for no reason at PhotoDrop&apos;s sole discretion.
       <br />
       <br />
       Photos designated for commercial license should be free from any distinguishable third party names, trademarks,
@@ -1102,7 +1100,7 @@ const TermsOfUse = () => (
         </li>
         <li>
           All information concerning all Photos provided by Content Owner to PhotoDrop through the use of the Services
-          is, to the best of Content Owner`&apos;`s knowledge, true and accurate; and
+          is, to the best of Content Owner&apos;s knowledge, true and accurate; and
         </li>
         <li>
           All Photos submitted or posted by Content Owner have all necessary releases, consents and permissions required
@@ -1136,23 +1134,23 @@ const TermsOfUse = () => (
       <br />
       In accordance with the Digital Millennium Copyright Act of 1998 (“DMCA”), the text of which may be found on the
       U.S. Copyright Office website at http://www.copyright.gov/legislation/pl105-304.pdf, and other applicable laws,
-      PhotoDrop has adopted a policy of terminating, in appropriate circumstances and at PhotoDrop`&apos;`s sole
+      PhotoDrop has adopted a policy of terminating, in appropriate circumstances and at PhotoDrop&apos;s sole
       discretion, the accounts of users who are deemed to be repeat infringers. PhotoDrop may also, at its sole
-      discretion, limit access to PhotoDrop`&apos;`s website and services and/or terminate the accounts of any users who
+      discretion, limit access to PhotoDrop&apos;s website and services and/or terminate the accounts of any users who
       infringe any intellectual property rights of others, whether or not there is any repeat infringement. PhotoDrop
-      will respond to claims of copyright infringement committed using PhotoDrop that are reported to PhotoDrop`&apos;`s
+      will respond to claims of copyright infringement committed using PhotoDrop that are reported to PhotoDrop&apos;s
       Designated Copyright Agent, identified in the sample notice below.
       <br />
       <br />
       If you knowingly misrepresent in your notification that the material or activity is infringing, you will be liable
-      for any damages, including costs and attorney`&apos;`s`&apos;` fees, incurred by us or the alleged infringer as
-      the result of our relying upon such misrepresentation in removing or disabling access to the material or activity
+      for any damages, including costs and attorney&apos;s&apos; fees, incurred by us or the alleged infringer as the
+      result of our relying upon such misrepresentation in removing or disabling access to the material or activity
       claimed to be infringing.
       <br />
       <br />
       If you are a copyright owner, or are authorized to act on behalf of one, or authorized to act under any exclusive
       right under copyright, please report alleged copyright infringements taking place on or through the PhotoDrop
-      Services by completing the following DMCA Notice of Alleged Infringement and delivering it to PhotoDrop`&apos;`s
+      Services by completing the following DMCA Notice of Alleged Infringement and delivering it to PhotoDrop&apos;s
       Designated Copyright Agent.
       <br />
       <br />

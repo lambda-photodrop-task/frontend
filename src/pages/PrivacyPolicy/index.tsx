@@ -22,18 +22,18 @@ const PrivacyPolicy = () => (
       Your Personal Information may be processed by us in the country where it was collected and transferred to, and
       maintained on, computers located outside of your state, province, country (including the United States), or other
       governmental jurisdiction where privacy laws regarding processing of Personal Information may be less stringent
-      than the laws in your country. If you`&apos;`re located outside the United States and choose to provide your
+      than the laws in your country. If you&apos;re located outside the United States and choose to provide your
       Personal Information to us, we may transfer your Personal Information to the United States and process it there.
       <br /> <br />
       <b>Regarding Children</b>
       <br />
       Children under the age of 13 are not permitted to use the Service and we do not intentionally collect or maintain
       Personal Information from those who are under 13 years old. Protecting the privacy of children is very important
-      to us. Thus, if we obtain actual knowledge that a user is under 13, we will take steps to remove that
-      user`&apos;`s Personal Information from our databases. We recommend that children between the ages of 13 and 18
-      obtain their parent`&apos;`s permission before submitting information over the internet. By using the Service, you
-      are representing that you are at least 18 years old, or that you are at least 13 years old and have your
-      parents`&apos;` permission to use the Service.
+      to us. Thus, if we obtain actual knowledge that a user is under 13, we will take steps to remove that user&apos;s
+      Personal Information from our databases. We recommend that children between the ages of 13 and 18 obtain their
+      parent&apos;s permission before submitting information over the internet. By using the Service, you are
+      representing that you are at least 18 years old, or that you are at least 13 years old and have your parents&apos;
+      permission to use the Service.
       <br /> <br />
       <b>Collection and Use of Information</b>
       <br />
@@ -103,7 +103,7 @@ const PrivacyPolicy = () => (
       <b>Location Information</b>
       <br />
       When you use our App, we may collect and store information about your location by converting your IP address into
-      a rough geo-location or by accessing your mobile device`&apos;`s GPS coordinates or coarse location if you enable
+      a rough geo-location or by accessing your mobile device&apos;s GPS coordinates or coarse location if you enable
       location services on your device. We may use location information to improve and personalize our Service for you,
       such as to identify photos of you near a particular location. If you do not want us to collect location
       information, you may disable that feature on your mobile device. However, if you disable the location services
@@ -131,7 +131,7 @@ const PrivacyPolicy = () => (
       <b>Information Collected Automatically</b>
       <br />
       As you use the Service, certain information about how a person uses our Service may also be passively collected
-      and stored on our or our service providers`&apos;` server logs, including your Internet protocol address, browser
+      and stored on our or our service providers&apos; server logs, including your Internet protocol address, browser
       type, and operating system. We also use navigational data like Uniform Resource Locators (URL) to gather
       information regarding the date and time of your visit and the solutions and information for which you searched and
       viewed, or on which of the advertisements displayed on the Service you clicked. This type of information is
@@ -144,7 +144,7 @@ const PrivacyPolicy = () => (
       you use a consumer internet access provider, your IP Address probably varies from session to session. For example,
       we, or our service providers, may track your IP Address when you access the Service to assist with ad targeting.
       <br /> <br />
-      “Cookies” are small pieces of information that a website sends to your computer`&apos;`s hard drive while you are
+      “Cookies” are small pieces of information that a website sends to your computer&apos;s hard drive while you are
       viewing a website. We may use both session Cookies (which expire once you close your web browser) and persistent
       Cookies (which stay on your computer until you delete them) to tell us how and when you interact with our
       Services, to monitor aggregate usage and web traffic routing on our Service, to improve our Service, and to
@@ -235,12 +235,12 @@ const PrivacyPolicy = () => (
       The Service may contain links to other websites. Please be aware that we are not responsible for the privacy
       practices or the content of such other websites. Any information that you provide on or to a third party website
       or that is collected by a third party service is provided directly to the owner or operator of the third party
-      website or service and is subject to the owner`&apos;`s or operator`&apos;`s privacy policy. We encourage our
-      users to read the privacy statements of each and every website they visit and service they use. This Privacy
-      Policy applies solely to information collected by us through the Service and does not apply to these third-party
-      websites. The ability to access information of third-parties from the Service, or links to other websites or
-      locations, is for your convenience and does not signify our endorsement of such third-parties, their products,
-      their services, other websites, locations or their content.
+      website or service and is subject to the owner&apos;s or operator&apos;s privacy policy. We encourage our users to
+      read the privacy statements of each and every website they visit and service they use. This Privacy Policy applies
+      solely to information collected by us through the Service and does not apply to these third-party websites. The
+      ability to access information of third-parties from the Service, or links to other websites or locations, is for
+      your convenience and does not signify our endorsement of such third-parties, their products, their services, other
+      websites, locations or their content.
       <br />
       <br />
       <b>Your Choices Regarding Your Personal Information</b>
@@ -288,7 +288,7 @@ const PrivacyPolicy = () => (
       Any information that is collected via our Service is covered by the Privacy Policy in effect at the time such
       information is collected. This Privacy Policy is subject to occasional revision at our discretion, and if we make
       any substantial changes in the way we collect, use, or disclose your Personal Information, we will post an alert
-      on this page and we`&apos;`ll update the “Last Updated Date” above to indicate when those changes will become
+      on this page and we&apos;ll update the “Last Updated Date” above to indicate when those changes will become
       effective. If you object to any such changes, you must cease using the Service. Continued use of the Service
       following notice of any such changes shall indicate your acknowledgement of such changes and agreement to be bound
       by the terms and conditions of such changes.
