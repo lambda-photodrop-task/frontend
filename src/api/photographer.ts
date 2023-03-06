@@ -1,5 +1,5 @@
-import { CreateAlbum, Photographer } from '../types/photographer';
-import { Album, Photo } from '../types/user';
+import { CreateAlbum, Photographer, TagUsersPayload } from '../types/photographer';
+import { Album, Photo, User } from '../types/user';
 import { instance } from './instance';
 
 export const getPhotographerProfile = async () => instance.get<{ photographer: Photographer }>('/photographer/profile');
@@ -29,3 +29,11 @@ export const getPhotoThumbnail = async (photoId: string) =>
 
 export const createAlbum = async ({ name, location, price }: CreateAlbum) =>
   instance.post<{ album: Album }>('/photographer/album', { name, location, price });
+
+export const getUsers = async () => instance.get<{ users: User[] }>('/photographer/users');
+
+export const tagUsers = async ({ userIds, photoIds }: TagUsersPayload) =>
+  instance.post('/photographer/users', {
+    userIds,
+    photoIds,
+  });

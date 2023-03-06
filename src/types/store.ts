@@ -1,4 +1,4 @@
-import { CreateAlbum, Photographer } from './photographer';
+import { CreateAlbum, Photographer, TagUsersPayload } from './photographer';
 import { Album, NotificationSettings, Photo, UpdateUser, UploadSelfie, User } from './user';
 
 export interface AuthStore {
@@ -50,6 +50,7 @@ export interface PhotographerStore {
   photographer: Photographer | null;
   albums: { data: Album[]; status: Status };
   photos: { data: Photo[]; status: Status };
+  users: { data: User[]; status: Status };
 
   getPhotographer: () => Promise<void>;
 
@@ -58,4 +59,7 @@ export interface PhotographerStore {
 
   getPhotos: (albumId: string) => Promise<void>;
   addPhotos: (albumId: string, files: File[]) => Promise<void>;
+
+  getUsers: () => Promise<void>;
+  tagUsers: ({ userIds, photoIds }: TagUsersPayload) => Promise<void>;
 }

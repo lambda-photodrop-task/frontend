@@ -5,7 +5,9 @@ import {
   getPhotographerPhotosInAlbum,
   getPhotographerProfile,
   getPhotoThumbnail,
+  getUsers,
   postPhotosToAlbum,
+  tagUsers,
 } from '../api/photographer';
 import { PhotographerStore } from '../types/store';
 
@@ -13,6 +15,7 @@ export const usePhotographerStore = create<PhotographerStore>()((set, get) => ({
   photographer: null,
   albums: { data: [], status: 'Pending' },
   photos: { data: [], status: 'Pending' },
+  users: { data: [], status: 'Pending' },
 
   getPhotographer: async () => {
     const { data } = await getPhotographerProfile();
@@ -29,8 +32,8 @@ export const usePhotographerStore = create<PhotographerStore>()((set, get) => ({
   createAlbum: async ({ name, location, price }) => {
     const { data } = await createAlbum({ name, location, price });
 
-    // set({ albums: { ...get().albums, data: [...get().albums.data, data.album] } });
-    await get().getAlbums();
+    set({ albums: { ...get().albums, data: [...get().albums.data, data.album] } });
+    // await get().getAlbums();
   },
 
   getPhotos: async (albumId) => {
@@ -53,5 +56,16 @@ export const usePhotographerStore = create<PhotographerStore>()((set, get) => ({
   addPhotos: async (albumId, files: File[]) => {
     await postPhotosToAlbum(albumId, files);
     await get().getPhotos(albumId);
+  },
+
+  getUsers: async () => {
+    set({ users: { data: [], status: 'Loading' } });
+
+    const { data } = await getUsers();
+
+    set({ users: { data: data.users, status: 'Fullfilled' } });
+  },
+  tagUsers: async ({ userIds, photoIds }) => {
+    await tagUsers({ userIds, photoIds });
   },
 }));

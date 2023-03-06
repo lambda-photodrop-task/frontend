@@ -9,3 +9,8 @@ export interface CreateAlbum {
   location: string;
   price?: number;
 }
+
+export interface TagUsersPayload {
+  userIds: string[];
+  photoIds: string[];
+}
