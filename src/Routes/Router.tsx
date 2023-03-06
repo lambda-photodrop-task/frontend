@@ -4,7 +4,6 @@ import AuthPhotographer from '../pages/Auth/Photographer';
 import AuthStepOne from '../pages/Auth/StepOne';
 import AuthStepThree from '../pages/Auth/StepThree';
 import AuthStepTwo from '../pages/Auth/StepTwo';
-import PhotographerMain from '../pages/Photographer/Main';
 import PrivacyPolicy from '../pages/PrivacyPolicy';
 import TermsOfUse from '../pages/TermsOfUse';
 import UserMain from '../pages/User/Main';
@@ -15,6 +14,8 @@ import NameSettings from '../pages/User/Settings/NameSettings';
 import { useAuthStore } from '../store/authStore';
 import { useUserStore } from '../store/userStore';
 import NotificationsSettings from '../pages/User/Settings/NotificationsSettings';
+import PhotographerMainPage from '../pages/Photographer/Main';
+import PhotographerAlbumPage from '../pages/Photographer/Album';
 
 const Router = () => {
   const { role } = useAuthStore((state) => state);
@@ -63,9 +64,10 @@ const Router = () => {
   } else if (role === 'Photographer') {
     Router = (
       <Routes>
-        <Route path="/photographer" element={<PhotographerMain />} />
+        <Route path="/photographer" element={<PhotographerMainPage />} />
+        <Route path="/album/:albumId" element={<PhotographerAlbumPage />} />
 
-        <Route path="*" element={<Navigate to="/photographer" replace />} />
+        {/* <Route path="*" element={<Navigate to="/photographer" replace />} /> */}
       </Routes>
     );
   }

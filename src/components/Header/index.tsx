@@ -13,8 +13,8 @@ const Header = () => {
 
   return (
     <div css={css.container}>
-      <div css={css.backButton(backButtonRoutes.some((route) => route.path === location.pathname))}>
-        <Link to={backButtonRoutes.find((route) => route.path === location.pathname)?.link ?? '/'}>
+      <div css={css.backButton(backButtonRoutes.some((route) => !!new RegExp(route.path).test(location.pathname)))}>
+        <Link to={backButtonRoutes.find((route) => new RegExp(route.path).test(location.pathname))?.link ?? '/'}>
           <BackArrowIcon />
         </Link>
       </div>

@@ -37,6 +37,7 @@ export interface Album {
 
 export interface Photo {
   id: string;
+  src?: string;
   creationDate: string;
   isPurchased: boolean;
 }

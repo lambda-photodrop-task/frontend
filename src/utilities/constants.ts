@@ -45,4 +45,8 @@ export const backButtonRoutes = [
     path: '/settings/notifications',
     link: '/settings',
   },
+  {
+    path: '/album/*',
+    link: '/photographer',
+  },
 ];

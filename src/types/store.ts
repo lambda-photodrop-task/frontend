@@ -49,9 +49,13 @@ export interface UserStore {
 export interface PhotographerStore {
   photographer: Photographer | null;
   albums: { data: Album[]; status: Status };
+  photos: { data: Photo[]; status: Status };
 
   getPhotographer: () => Promise<void>;
 
   getAlbums: () => Promise<void>;
   createAlbum: ({ name, location, price }: CreateAlbum) => Promise<void>;
+
+  getPhotos: (albumId: string) => Promise<void>;
+  addPhotos: (albumId: string, files: File[]) => Promise<void>;
 }

@@ -6,6 +6,7 @@ specifiers:
   '@emotion/react': ^11.10.5
   '@types/react': ^18.0.26
   '@types/react-dom': ^18.0.9
+  '@types/react-dropzone': ^5.1.0
   '@types/react-easy-crop': ^2.0.0
   '@types/react-modal': ^3.13.1
   '@types/react-otp-input': ^2.0.1
@@ -31,6 +32,7 @@ specifiers:
   prettier: ^2.8.3
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-dropzone: ^14.2.3
   react-easy-crop: ^4.7.1
   react-hot-toast: ^2.4.0
   react-modal: ^3.16.1
@@ -52,6 +54,7 @@ dependencies:
   phone: 3.1.33
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-dropzone: 14.2.3_react@18.2.0
   react-easy-crop: 4.7.1_biqbaboplfbrettd7655fr4n2y
   react-hot-toast: 2.4.0_biqbaboplfbrettd7655fr4n2y
   react-modal: 3.16.1_biqbaboplfbrettd7655fr4n2y
@@ -67,6 +70,7 @@ devDependencies:
   '@emotion/babel-preset-css-prop': 11.10.0
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
+  '@types/react-dropzone': 5.1.0_react@18.2.0
   '@types/react-easy-crop': 2.0.0_biqbaboplfbrettd7655fr4n2y
   '@types/react-modal': 3.13.1
   '@types/react-otp-input': 2.0.1
@@ -939,6 +943,15 @@ packages:
       '@types/react': 18.0.27
     dev: true
 
+  /@types/react-dropzone/5.1.0_react@18.2.0:
+    resolution: {integrity: sha512-VCdDCwSsr1MT2frsVl5p8qH+LWwUGzsaNtGkEQekHviZqK0dmTbiIp2Pzfb8lTkH4oTE2JtBbWnbuM6B4FH80A==}
+    deprecated: This is a stub types definition. react-dropzone provides its own type definitions, so you do not need this installed.
+    dependencies:
+      react-dropzone: 14.2.3_react@18.2.0
+    transitivePeerDependencies:
+      - react
+    dev: true
+
   /@types/react-easy-crop/2.0.0_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-dUkoNMW3OrXQBYgozC43d3vYPQD23uJFt3ZmM4vcVrj7UjmIc2WxCnO9Zl5fs6bp7StnCtYb3Kp7h7s5T2Xu4w==}
     deprecated: This is a stub types definition. react-easy-crop provides its own type definitions, so you do not need this installed.
@@ -1264,6 +1277,10 @@ packages:
     dependencies:
       core-js: 2.6.12
     dev: false
+
+  /attr-accept/2.2.2:
+    resolution: {integrity: sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==}
+    engines: {node: '>=4'}
 
   /available-typed-arrays/1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
@@ -2385,6 +2402,12 @@ packages:
       tslib: 2.5.0
     dev: false
 
+  /file-selector/0.6.0:
+    resolution: {integrity: sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==}
+    engines: {node: '>= 12'}
+    dependencies:
+      tslib: 2.5.0
+
   /fill-range/7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
     engines: {node: '>=8'}
@@ -3254,6 +3277,17 @@ packages:
       react: 18.2.0
       scheduler: 0.23.0
 
+  /react-dropzone/14.2.3_react@18.2.0:
+    resolution: {integrity: sha512-O3om8I+PkFKbxCukfIR3QAGftYXDZfOE2N1mr/7qebQJHs7U+/RSL/9xomJNpRg9kM5h9soQSdf0Gc7OHF5Fug==}
+    engines: {node: '>= 10.13'}
+    peerDependencies:
+      react: '>= 16.8 || 18.0.0'
+    dependencies:
+      attr-accept: 2.2.2
+      file-selector: 0.6.0
+      prop-types: 15.8.1
+      react: 18.2.0
+
   /react-dropzone/9.0.0_react@18.2.0:
     resolution: {integrity: sha512-wZ2o9B2qkdE3RumWhfyZT9swgJYJPeU5qHEcMU8weYpmLex1eeWX0CC32/Y0VutB+BBi2D+iePV/YZIiB4kZGw==}
     engines: {node: '>= 6'}
@@ -3752,7 +3786,6 @@ packages:
 
   /tslib/2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
-    dev: false
 
   /tsutils/3.21.0_typescript@4.9.5:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
